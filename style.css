@@ -22,7 +22,7 @@ body {
 .main-container {
   display: flex;
   flex: 1 1 auto;
-  height: 100vh; /* hauteur de la fenêtre */
+  height: auto; /* hauteur de la fenêtre */
   width: 100%;
 }
 
@@ -150,7 +150,7 @@ body {
 .main-container {
   display: flex;
   flex: 1 1 auto;
-  height: 100vh; /* hauteur de la fenêtre */
+  height: auto; /* hauteur de la fenêtre */
   width: 100%;
 }
 
@@ -259,7 +259,7 @@ body {
 .page-with-bg {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -356,6 +356,7 @@ body {
   display: flex;
   gap: 50px; /* Augmentation de l’espace entre les cartes */
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 900px; /* max largeur des 3 cards */
 }
@@ -519,4 +520,133 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   color: #ffff;
+}
+
+@media (max-width: 768px) {
+  .cards-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .subject-card,
+  .subject-card2 {
+    width: 90%;
+    max-width: 350px;
+    font-size: 1.2rem;
+    padding: 30px 20px;
+  }
+
+  .section-header-card {
+    width: 90%;
+    max-width: 350px;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+  }
+
+  .page-with-bg {
+    flex-direction: column;
+    padding: 30px 10px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .page-with-bg::before {
+    background-position: top center;
+    background-size: cover;
+    opacity: 0.4; /* image plus discrète sur mobile */
+  }
+
+  .center-content {
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
+  .section-header-card,
+  .section-header-card1,
+  .section-header-card2,
+  .section-header-card3 {
+    width: 90%;
+    max-width: 320px;
+    padding: 15px 20px;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .section-header-card h1,
+  .section-header-card1 h1,
+  .section-header-card2 h1,
+  .section-header-card3 h1 {
+    font-size: 1.6rem;
+  }
+
+  .cards-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .subject-card1,
+  .subject-card2,
+  .subject-card3 {
+    width: 90%;
+    max-width: 320px;
+    padding: 25px 15px;
+    font-size: 1.2rem;
+  }
+
+  .centered-table,
+  .centered-table2,
+  .centered-table3 {
+    min-width: unset;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .centered-table th,
+  .centered-table td,
+  .centered-table2 th,
+  .centered-table2 td,
+  .centered-table3 th,
+  .centered-table3 td {
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .image-side {
+    width: 100%;
+    height: 200px; /* plus petite image sur mobile */
+  }
+
+  .content-side {
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    font-size: 0.95rem;
+    padding: 15px;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
 }
