@@ -1,27 +1,330 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Colle En Ligne - Sujets</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujets de Colle - Colle En Ligne</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+      .subject-card {
+        transition: all 0.3s ease;
+      }
+      .subject-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+    </style>
 </head>
-<body>
-  <div class="page-with-bg">
-    <div class="center-content">
-      <!-- Titre dans une petite carte -->
-      <div class="section-header-card">
-        <h1>Sujets et Corrections</h1>
-      </div>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/index.html">
+                            <i data-feather="book-open" class="h-8 w-8 text-primary-600"></i>
+                        </a>
+                        <a href="/index.html" class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="/Repertoire_Sujet.html" class="border-b-2 border-primary-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+                    </a>
+                    <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="archive" class="mr-1"></i> Annales
+                    </a>
+                    <a href="/Conseils.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="lightbulb" class="mr-1"></i> Conseils
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-      <!-- Ligne de 3 cards cliquables -->
-      <div class="cards-row">
-        <a href="BCPST2_Maths.html" class="subject-card1">BCPST2 - Maths</a>
-        <a href="PCSI_Physique.html" class="subject-card2">PCSI - Physique</a>
-        <a href="PC_Chimie.html" class="subject-card3">PC - Chimie</a>
-      </div>
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <span class="block">Sujets de Colle</span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Accédez à tous les sujets de khôlle avec leurs corrections
+            </p>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="mb-8 bg-white p-6 rounded-lg shadow">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div class="mb-4 sm:mb-0">
+                    <label for="subject-filter" class="block text-sm font-medium text-gray-700">Filtrer par matière</label>
+                    <select id="subject-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md">
+                        <option>Toutes les matières</option>
+                        <option>Mathématiques</option>
+                        <option>Physique</option>
+                        <option>Chimie</option>
+                        <option>Informatique</option>
+                        <option>Français</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="level-filter" class="block text-sm font-medium text-gray-700">Filtrer par niveau</label>
+                    <select id="level-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md">
+                        <option>Tous les niveaux</option>
+                        <option>1ère année</option>
+                        <option>2ème année</option>
+                        <option>Concours</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subjects Grid -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Subject Card 1 -->
+            <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Analyse - Suites</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: 1ère année</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Exercices sur les suites numériques, convergence et théorèmes classiques.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                            Voir le sujet
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Card 2 -->
+            <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Mécanique du Point</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: 2ème année</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Problèmes de mécanique newtonienne avec corrigés détaillés.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                            Voir le sujet
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Card 3 -->
+            <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Thermodynamique</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: Concours</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Cycle de Carnot, machines thermiques et bilans d'entropie.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                            Voir le sujet
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Card 4 -->
+            <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Algèbre Linéaire</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: 1ère année</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Espaces vectoriels, applications linéaires et matrices.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                            Voir le sujet
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Card 5 -->
+            <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Électrocinétique</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: 2ème année</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Circuits RLC, régime transitoire et régime sinusoïdal forcé.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                            Voir le sujet
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject Card 6 -->
+            <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                            <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Algorithmique</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: Concours</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Complexité, structures de données et algorithmes classiques.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                            Voir le sujet
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-10 flex items-center justify-between">
+            <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Previous</span>
+                        <i data-feather="chevron-left" class="h-5 w-5"></i>
+                    </a>
+                    <a href="#" aria-current="page" class="z-10 bg-primary-50 border-primary-500 text-primary-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        1
+                    </a>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        2
+                    </a>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        3
+                    </a>
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                        ...
+                    </span>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        8
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Next</span>
+                        <i data-feather="chevron-right" class="h-5 w-5"></i>
+                    </a>
+                </nav>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <div>
+                    <p class="text-sm text-gray-700">
+                        Showing <span class="font-medium">1</span> to <span class="font-medium">6</span> of <span class="font-medium">42</span> subjects
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+                <div class="px-5 py-2">
+                    <a href="/Repertoire_Sujet.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Sujets de colle
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Annales_Oral.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Annales
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Conseils.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Conseils
+                    </a>
+                </div>
+            </nav>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="github" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="twitter" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="mail" class="h-6 w-6"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-center text-base text-gray-400">
+                &copy; 2023 Colle En Ligne. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>

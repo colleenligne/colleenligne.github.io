@@ -1,51 +1,573 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PC - Chimie</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conseils - Colle En Ligne</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+      .tip-card {
+        transition: all 0.3s ease;
+      }
+      .tip-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+    </style>
 </head>
-<body>
-  <div class="page-with-bg">
-    <div class="center-content">
-      
-      <div class="section-header-card">
-        <h1>Conseils</h1>
-      </div>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/index.html">
+                            <i data-feather="book-open" class="h-8 w-8 text-primary-600"></i>
+                        </a>
+                        <a href="/index.html" class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+                    </a>
+                    <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="archive" class="mr-1"></i> Annales
+                    </a>
+                    <a href="/Conseils.html" class="border-b-2 border-primary-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="lightbulb" class="mr-1"></i> Conseils
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-      <div class="section-header-card">
-        <p>Loin de penser avoir réalisé la prépa parfaite, je pense tout de même pouvoir donner quelques
-          conseils. Ces conseils sont issus de l'expérience de la PC, mais sont sans doute applicables à
-          d'autres sections.
-        </p>
-      
-        <h3>Ne négliger aucune matière.</h3>
-        <p>À de nombreux concours, le français et l'anglais, souvent négligés en prépa scientifique, sont
-          pourtant très coefficientés. De fait, ce sont ces matières qui départagent les meilleurs élèves
-          et qui peuvent faire la différence. On se rappellera, à titre d'exemple, que le français compte 
-          pour 20% de l'admissibilité à Centrale en PC... Cependant, ces matières sont souvent ingrates et 
-          il convient de trouver un juste milieu entre les travailler trop et pas assez.
-        </p>
-       
-        <h3>Connaître parfaitement son cours.</h3>
-        <p>En maths, comme en physique et en chimie, le cours est le point de départ pour toute résolution. De 
-          fait, une bonne connaissance du cours permet presque à tous les coups de s'assurer l'admissibilité à
-          Centrale ainsi qu'à Mines-Ponts. Il convient donc de prendre le temps de maîtriser parfaitement son 
-          cours.
-        </p>
-        
-        <h3>Faire le maximum de sujets (spé).</h3>
-        <p>Faire des sujets permet de s'entraîner en conditions réelles, sur des sujets déjà tombés. Rien 
-          de mieux, alors, pour s'entraîner aux écrits. Ainsi, on entraîne à la fois sa vitesse de réponse/rédaction
-          et sa compréhension du cours et de son articulation, en repérant les suites récurrentes de questions. 
-          Il faut atteindre un certain automatisme sur les questions de cours ou proches du cours. Cette démarche, 
-          procurant un avantage aux concours, se révèle absolument essentielle pour être admissible sur X-ENS.
-        </p>
-      </div>
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <span class="block">Conseils Pratiques</span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Méthodologie et astuces pour réussir vos oraux
+            </p>
+        </div>
 
+        <!-- Tips Grid -->
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Tip Card 1 -->
+            <div class="tip-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                            <i data-feather="clock" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Gestion du temps</h3>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Apprenez à bien répartir votre temps pendant une khôlle pour traiter tous les aspects du sujet sans vous précipiter.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#time-management" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip Card 2 -->
+            <div class="tip-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                            <i data-feather="edit-3" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Prise de notes</h3>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Techniques pour prendre des notes efficaces pendant la préparation et structurer votre réponse.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#note-taking" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip Card 3 -->
+            <div class="tip-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                            <i data-feather="mic" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Expression orale</h3>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Améliorez votre élocution, le rythme et la clarté de votre expression pour captiver l'examinateur.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#oral-expression" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip Card 4 -->
+            <div class="tip-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                            <i data-feather="book" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Révision efficace</h3>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Méthodes pour réviser efficacement et retenir l'essentiel sans vous noyer dans les détails.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#efficient-revision" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip Card 5 -->
+            <div class="tip-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                            <i data-feather="alert-triangle" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Gestion du stress</h3>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Techniques pour gérer votre stress avant et pendant l'épreuve orale.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#stress-management" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip Card 6 -->
+            <div class="tip-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                            <i data-feather="thumbs-up" class="h-6 w-6 text-white"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Attitude positive</h3>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600">
+                            Comment adopter la bonne attitude face à l'examinateur et créer une interaction constructive.
+                        </p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#positive-attitude" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                            En savoir plus →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Tips -->
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Conseils détaillés</h2>
+
+            <!-- Time Management -->
+            <div id="time-management" class="mb-12 bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 flex items-center">
+                        <i data-feather="clock" class="mr-2 h-5 w-5 text-yellow-500"></i>
+                        Gestion du temps
+                    </h3>
+                </div>
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="space-y-4">
+                        <p>
+                            La gestion du temps est cruciale pendant une khôlle. Voici quelques conseils :
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>
+                                <strong>5 minutes d'analyse</strong> : Prenez le temps de bien comprendre le sujet avant de commencer.
+                            </li>
+                            <li>
+                                <strong>Structurez votre temps</strong> : Divisez votre temps entre l'introduction, le développement et la conclusion.
+                            </li>
+                            <li>
+                                <strong>Gardez 5 minutes</strong> à la fin pour relire et corriger d'éventuelles erreurs.
+                            </li>
+                            <li>
+                                <strong>Utilisez une montre</strong> discrètement pour garder un œil sur le temps sans stresser.
+                            </li>
+                        </ul>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="alert-circle" class="h-5 w-5 text-yellow-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        Ne passez pas trop de temps sur une partie au détriment des autres. Si vous bloquez, passez à la suite et revenez-y plus tard si le temps le permet.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note Taking -->
+            <div id="note-taking" class="mb-12 bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 flex items-center">
+                        <i data-feather="edit-3" class="mr-2 h-5 w-5 text-green-500"></i>
+                        Prise de notes
+                    </h3>
+                </div>
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="space-y-4">
+                        <p>
+                            Une bonne prise de notes pendant la préparation peut faire toute la différence :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-medium text-gray-900">À faire :</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Utilisez des abréviations pour gagner du temps</li>
+                                    <li>Structurez vos notes avec des titres clairs</li>
+                                    <li>Séparez les idées principales des détails</li>
+                                    <li>Notez les références théoriques importantes</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">À éviter :</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Écrire des phrases complètes (trop long)</li>
+                                    <li>Surcharger vos notes de détails inutiles</li>
+                                    <li>Oublier de numéroter les pages</li>
+                                    <li>Prendre des notes illisibles</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4 mt-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="check-circle" class="h-5 w-5 text-green-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-green-700">
+                                        Entraînez-vous à prendre des notes rapidement lors de vos révisions pour améliorer votre efficacité le jour J.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Oral Expression -->
+            <div id="oral-expression" class="mb-12 bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 flex items-center">
+                        <i data-feather="mic" class="mr-2 h-5 w-5 text-blue-500"></i>
+                        Expression orale
+                    </h3>
+                </div>
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="space-y-4">
+                        <p>
+                            Votre expression orale est aussi importante que le contenu de votre réponse. Voici comment l'améliorer :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                            <div>
+                                <h4 class="font-medium text-gray-900">Voix</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Parlez suffisamment fort</li>
+                                    <li>Articulez clairement</li>
+                                    <li>Variez le ton pour captiver</li>
+                                    <li>Évitez les "euh" répétitifs</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Corps</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Tenez-vous droit</li>
+                                    <li>Utilisez des gestes modérés</li>
+                                    <li>Maintenez un contact visuel</li>
+                                    <li>Évitez de vous balancer</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Contenu</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Structurez votre discours</li>
+                                    <li>Utilisez des transitions</li>
+                                    <li>Donnez des exemples concrets</li>
+                                    <li>Résumez vos idées</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="info" class="h-5 w-5 text-blue-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-blue-700">
+                                        Enregistrez-vous lors de vos révisions pour identifier vos points faibles et mesurer vos progrès.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Efficient Revision -->
+            <div id="efficient-revision" class="mb-12 bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 flex items-center">
+                        <i data-feather="book" class="mr-2 h-5 w-5 text-purple-500"></i>
+                        Révision efficace
+                    </h3>
+                </div>
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="space-y-4">
+                        <p>
+                            Pour des révisions efficaces avant les oraux, adoptez ces stratégies :
+                        </p>
+                        <ol class="list-decimal pl-5 space-y-4">
+                            <li>
+                                <strong>Planifiez vos révisions</strong> : Créez un calendrier réaliste couvrant tous les sujets.
+                            </li>
+                            <li>
+                                <strong>Active recall</strong> : Testez-vous régulièrement au lieu de simplement relire.
+                            </li>
+                            <li>
+                                <strong>Fiches de synthèse</strong> : Résumez chaque chapitre sur une fiche avec les points clés.
+                            </li>
+                            <li>
+                                <strong>Exercices chronométrés</strong> : Entraînez-vous dans les conditions réelles de l'examen.
+                            </li>
+                            <li>
+                                <strong>Groupes de travail</strong> : Expliquez les concepts à d'autres pour mieux les maîtriser.
+                            </li>
+                        </ol>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 mt-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="zap" class="h-5 w-5 text-purple-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-purple-700">
+                                        La technique Pomodoro (25 minutes de travail concentré suivies de 5 minutes de pause) peut considérablement améliorer votre productivité.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stress Management -->
+            <div id="stress-management" class="mb-12 bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 flex items-center">
+                        <i data-feather="alert-triangle" class="mr-2 h-5 w-5 text-red-500"></i>
+                        Gestion du stress
+                    </h3>
+                </div>
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="space-y-4">
+                        <p>
+                            Le stress peut nuire à votre performance. Voici comment le gérer :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-medium text-gray-900">Avant l'oral</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Dormez suffisamment la veille</li>
+                                    <li>Évitez les révisions de dernière minute</li>
+                                    <li>Pratiquez la respiration profonde</li>
+                                    <li>Visualisez votre réussite</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Pendant l'oral</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Prenez une grande respiration avant de commencer</li>
+                                    <li>Buvez une gorgée d'eau si autorisé</li>
+                                    <li>Reformulez la question pour gagner du temps</li>
+                                    <li>Souriez, cela détend l'atmosphère</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4 mt-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="heart" class="h-5 w-5 text-red-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-red-700">
+                                        Un peu de stress est normal et peut même améliorer votre performance. L'important est de ne pas le laisser vous paralyser.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Positive Attitude -->
+            <div id="positive-attitude" class="mb-12 bg-white shadow overflow-hidden sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 flex items-center">
+                        <i data-feather="thumbs-up" class="mr-2 h-5 w-5 text-indigo-500"></i>
+                        Attitude positive
+                    </h3>
+                </div>
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="space-y-4">
+                        <p>
+                            Votre attitude peut influencer notablement votre note. Adoptez ces comportements :
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-medium text-gray-900">Interaction avec l'examinateur</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Saluez poliment en entrant</li>
+                                    <li>Maintenez un contact visuel</li>
+                                    <li>Écoutez attentivement les questions</li>
+                                    <li>Demandez des clarifications si besoin</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900">Gestion des difficultés</h4>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li>Reconnaissez vos erreurs avec humilité</li>
+                                    <li>Proposez des pistes de correction</li>
+                                    <li>Restez calme face aux questions difficiles</li>
+                                    <li>Montrez votre processus de réflexion</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 mt-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i data-feather="smile" class="h-5 w-5 text-indigo-400"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-indigo-700">
+                                        Les examinateurs apprécient les candidats qui montrent de l'enthousiasme pour la matière et une volonté d'apprendre, même lorsqu'ils ne connaissent pas toutes les réponses.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+                <div class="px-5 py-2">
+                    <a href="/Repertoire_Sujet.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Sujets de colle
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Annales_Oral.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Annales
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Conseils.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Conseils
+                    </a>
+                </div>
+            </nav>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="github" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="twitter" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="mail" class="h-6 w-6"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-center text-base text-gray-400">
+                &copy; 2023 Colle En Ligne. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Accordion functionality for mobile
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionContent = button.nextElementSibling;
+                
+                button.classList.toggle('active');
+                
+                if (button.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                } else {
+                    accordionContent.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

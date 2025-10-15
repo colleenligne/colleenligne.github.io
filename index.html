@@ -1,56 +1,233 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Colle En Ligne</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colle En Ligne - Préparation aux oraux</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4f46e5',
+              secondary: '#10b981',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .hero-gradient {
+        background: linear-gradient(135deg, #4f46e5 0%, #10b981 100%);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
 </head>
-<body>
-  <div class="main-container">
-
-    <div class="image-side"></div>
-
-    <div class="content-side">
-      <div class="wrapper">
-        <h1 class="title">Colle En Ligne</h1>
-
-        <div class="card disabled">
-          <p>
-            Sur ce site, chacun trouvera des ressources pour se préparer au mieux à l'oral.
-            Je mettrai ici, au fur et à mesure de l'année, les sujets de khôlle que je fais passer,
-            ainsi que des éléments de correction. Je compte aussi fournir ce site avec des annales 
-            de sujets d'oraux de différents concours corrigés. Bon courage a tous !
-          </p>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="book-open" class="h-8 w-8 text-primary"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</span>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+                    </a>
+                    <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="archive" class="mr-1"></i> Annales
+                    </a>
+                    <a href="/Conseils.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="lightbulb" class="mr-1"></i> Conseils
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        
-        <a href="Repertoire_Sujet.html" class = 'card-link'>
-        <div class="card highlight2">
-          <p>
-            Sujets de colle et correction.
-          </p>
-        </div>
-        </a>
-        <a href="Annales_Oral.html" class="card-link">
-        <div  class="card highlight3">
-          <p>
-            Annales de sujet d'oral.
-          </p>
-        </div>
-        </a>
-        <a href="Conseils.html" class="card-link">
-        <div  class="card highlight">
-          <p><strong>Conseils.</strong></p>
-        </div>
-        </a>
-      </div>
+    </nav>
 
-      <footer class="footer">
-        © 2025 ColleEnLigne - Tous droits réservés.
-      </footer>
+    <!-- Hero Section -->
+    <div class="hero-gradient">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                    Préparez-vous aux oraux avec excellence
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl text-indigo-100">
+                    Des ressources complètes pour maîtriser vos khôlles et concours oraux.
+                </p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <a href="/Repertoire_Sujet.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-primary bg-white hover:bg-gray-100">
+                        Voir les sujets
+                    </a>
+                    <a href="/Conseils.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary bg-opacity-60 hover:bg-opacity-70">
+                        Conseils pratiques
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
-  </div>
+    <!-- Features Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Ressources</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Tout ce dont vous avez besoin
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Des sujets de colle aux annales corrigées, préparez-vous efficacement.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Sujets de colle -->
+                    <a href="/Repertoire_Sujet.html" class="card-hover bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                    <i data-feather="file-text" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <h3 class="text-lg font-medium text-gray-900">Sujets de colle</h3>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Accédez à tous les sujets de khôlle avec corrections
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Annales -->
+                    <a href="/Annales_Oral.html" class="card-hover bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                    <i data-feather="archive" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <h3 class="text-lg font-medium text-gray-900">Annales d'oraux</h3>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Sujets d'oraux de concours classés et corrigés
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Conseils -->
+                    <a href="/Conseils.html" class="card-hover bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                    <i data-feather="lightbulb" class="h-6 w-6 text-white"></i>
+                                </div>
+                                <div class="ml-5 w-0 flex-1">
+                                    <h3 class="text-lg font-medium text-gray-900">Conseils pratiques</h3>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Méthodologie et astuces pour réussir vos oraux
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="bg-gray-50">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    À propos de Colle En Ligne
+                </h2>
+                <p class="mt-4 text-lg text-gray-500">
+                    Ce site a été créé pour vous fournir les meilleures ressources pour vous préparer aux oraux. Vous y trouverez au fur et à mesure de l'année les sujets de khôlle que je fais passer, ainsi que des éléments de correction. Je complète également ce site avec des annales de sujets d'oraux de différents concours corrigés.
+                </p>
+                <div class="mt-8 text-center">
+                    <p class="text-xl font-medium text-gray-900">
+                        Bon courage à tous dans vos préparations !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+                <div class="px-5 py-2">
+                    <a href="/Repertoire_Sujet.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Sujets de colle
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Annales_Oral.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Annales
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Conseils.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Conseils
+                    </a>
+                </div>
+            </nav>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="github" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="twitter" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="mail" class="h-6 w-6"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-center text-base text-gray-400">
+                &copy; 2023 Colle En Ligne. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Mobile menu toggle functionality would go here
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !expanded);
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

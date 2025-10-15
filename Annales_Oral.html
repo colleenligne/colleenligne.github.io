@@ -1,27 +1,389 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PC - Chimie</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annales d'Oral - Colle En Ligne</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+      .exam-card {
+        transition: all 0.3s ease;
+      }
+      .exam-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .active-tab {
+        border-bottom: 2px solid #4f46e5;
+        color: #4f46e5;
+      }
+    </style>
 </head>
-<body>
-  <div class="page-with-bg">
-    <div class="center-content">
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/index.html">
+                            <i data-feather="book-open" class="h-8 w-8 text-primary-600"></i>
+                        </a>
+                        <a href="/index.html" class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+                    </a>
+                    <a href="/Annales_Oral.html" class="border-b-2 border-primary-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="archive" class="mr-1"></i> Annales
+                    </a>
+                    <a href="/Conseils.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="lightbulb" class="mr-1"></i> Conseils
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-      <!-- Titre dans une petite carte -->
-      <div class="section-header-card3">
-        <h1>Annales d'oral de concours</h1>
-      </div>
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <span class="block">Annales d'Oral</span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Sujets d'oraux de concours classés et corrigés
+            </p>
+        </div>
 
-      <!-- Sous-titre dans une carte -->
-      <div class="section-header-card3">
-        <h3>A venir...</h3>
-      </div>
+        <!-- Tabs -->
+        <div class="border-b border-gray-200">
+            <nav class="-mb-px flex space-x-8 overflow-x-auto">
+                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm active-tab">
+                    Tous les concours
+                </a>
+                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                    Polytechnique
+                </a>
+                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                    ENS
+                </a>
+                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                    Mines-Ponts
+                </a>
+                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                    Centrale-Supélec
+                </a>
+                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                    CCP
+                </a>
+            </nav>
+        </div>
 
+        <!-- Filter Section -->
+        <div class="my-8 bg-white p-6 rounded-lg shadow">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+                <div class="w-full sm:w-1/2 sm:pr-2">
+                    <label for="year-filter" class="block text-sm font-medium text-gray-700">Année</label>
+                    <select id="year-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md">
+                        <option>Toutes les années</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                        <option>2020</option>
+                        <option>2019</option>
+                    </select>
+                </div>
+                <div class="w-full sm:w-1/2 sm:pl-2">
+                    <label for="subject-filter" class="block text-sm font-medium text-gray-700">Matière</label>
+                    <select id="subject-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md">
+                        <option>Toutes les matières</option>
+                        <option>Mathématiques</option>
+                        <option>Physique</option>
+                        <option>Chimie</option>
+                        <option>Informatique</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exams Grid -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Exam Card 1 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+                            Mathématiques
+                        </span>
+                        <span class="text-sm text-gray-500">2023</span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Polynômes orthogonaux</h3>
+                        <p class="mt-1 text-sm text-gray-500">Polytechnique</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                            Étude des polynômes de Legendre et applications.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">15 pages</span>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Correction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Card 2 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-blue-800 text-xs font-medium bg-blue-100 rounded-full">
+                            Physique
+                        </span>
+                        <span class="text-sm text-gray-500">2022</span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Interféromètre de Michelson</h3>
+                        <p class="mt-1 text-sm text-gray-500">ENS</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                            Étude théorique et expérimentale de l'interféromètre.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">12 pages</span>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Correction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Card 3 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-purple-800 text-xs font-medium bg-purple-100 rounded-full">
+                            Chimie
+                        </span>
+                        <span class="text-sm text-gray-500">2023</span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Cinétique chimique</h3>
+                        <p class="mt-1 text-sm text-gray-500">Mines-Ponts</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                            Mécanismes réactionnels et détermination des lois de vitesse.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">8 pages</span>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Correction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Card 4 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-yellow-800 text-xs font-medium bg-yellow-100 rounded-full">
+                            Informatique
+                        </span>
+                        <span class="text-sm text-gray-500">2021</span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Algorithmes de tri</h3>
+                        <p class="mt-1 text-sm text-gray-500">Centrale-Supélec</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                            Comparaison des algorithmes de tri et complexité.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">10 pages</span>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Correction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Card 5 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-red-800 text-xs font-medium bg-red-100 rounded-full">
+                            Physique
+                        </span>
+                        <span class="text-sm text-gray-500">2020</span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Mécanique des fluides</h3>
+                        <p class="mt-1 text-sm text-gray-500">CCP</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                            Écoulement de Poiseuille et nombre de Reynolds.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">7 pages</span>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Correction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exam Card 6 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+                            Mathématiques
+                        </span>
+                        <span class="text-sm text-gray-500">2023</span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Équations différentielles</h3>
+                        <p class="mt-1 text-sm text-gray-500">Polytechnique</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                            Résolution et étude qualitative d'EDP.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">9 pages</span>
+                        <div class="flex space-x-2">
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                            <span class="text-gray-300">|</span>
+                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Correction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-10 flex items-center justify-between">
+            <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Previous</span>
+                        <i data-feather="chevron-left" class="h-5 w-5"></i>
+                    </a>
+                    <a href="#" aria-current="page" class="z-10 bg-primary-50 border-primary-500 text-primary-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        1
+                    </a>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        2
+                    </a>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        3
+                    </a>
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                        ...
+                    </span>
+                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        5
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                        <span class="sr-only">Next</span>
+                        <i data-feather="chevron-right" class="h-5 w-5"></i>
+                    </a>
+                </nav>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <div>
+                    <p class="text-sm text-gray-700">
+                        Affichage de <span class="font-medium">1</span> à <span class="font-medium">6</span> sur <span class="font-medium">24</span> annales
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+                <div class="px-5 py-2">
+                    <a href="/Repertoire_Sujet.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Sujets de colle
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Annales_Oral.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Annales
+                    </a>
+                </div>
+                <div class="px-5 py-2">
+                    <a href="/Conseils.html" class="text-base text-gray-500 hover:text-gray-900">
+                        Conseils
+                    </a>
+                </div>
+            </nav>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="github" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="twitter" class="h-6 w-6"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                    <i data-feather="mail" class="h-6 w-6"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-center text-base text-gray-400">
+                &copy; 2023 Colle En Ligne. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>
