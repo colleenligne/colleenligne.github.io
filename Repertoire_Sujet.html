@@ -68,28 +68,26 @@
                 <div class="mb-4 sm:mb-0">
                     <label for="subject-filter" class="block text-sm font-medium text-gray-700">Filtrer par matière</label>
                     <select id="subject-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md">
-                        <option>Toutes les matières</option>
-                        <option>Mathématiques</option>
-                        <option>Physique</option>
-                        <option>Chimie</option>
-                        <option>Informatique</option>
-                        <option>Français</option>
+                        <option value="all">Toutes les matières</option>
+                <option value="math-bcpst2">Mathématiques (BCPST2)</option>
+                <option value="physique-pcsi">Physique (PCSI)</option>
+                <option value="chimie-pcsi">Chimie (PCSI)</option>
                     </select>
                 </div>
                 <div>
                     <label for="level-filter" class="block text-sm font-medium text-gray-700">Filtrer par niveau</label>
                     <select id="level-filter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md">
-                        <option>Tous les niveaux</option>
-                        <option>1ère année</option>
-                        <option>2ème année</option>
-                        <option>Concours</option>
+                        <option value="all">Tous les niveaux</option>
+                        <option value="1A">1ère année</option>
+                        <option value="2A">2ème année</option>
                     </select>
                 </div>
             </div>
         </div>
 
         <!-- Subjects Grid -->
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" data-subject="math-bcpst2"
+     data-level="2A">
             <!-- Subject Card 1 -->
             <div class="subject-card bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
@@ -98,17 +96,17 @@
                             <i data-feather="file-text" class="h-6 w-6 text-white"></i>
                         </div>
                         <div class="ml-4">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">Analyse - Suites</h3>
-                            <p class="mt-1 text-sm text-gray-500">Niveau: 1ère année</p>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Analyse - Séries</h3>
+                            <p class="mt-1 text-sm text-gray-500">Niveau: 2ème année</p>
                         </div>
                     </div>
                     <div class="mt-4">
                         <p class="text-sm text-gray-600">
-                            Exercices sur les suites numériques, convergence et théorèmes classiques.
+                            Exercices sur les séries numériques, convergence et théorèmes classiques.
                         </p>
                     </div>
                     <div class="mt-5">
-                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                        <a href="sujets/Série.pdf" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
                             Voir le sujet
                             <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
                         </a>
@@ -124,7 +122,7 @@
                             <i data-feather="file-text" class="h-6 w-6 text-white"></i>
                         </div>
                         <div class="ml-4">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">Mécanique du Point</h3>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Probabilités</h3>
                             <p class="mt-1 text-sm text-gray-500">Niveau: 2ème année</p>
                         </div>
                     </div>
@@ -134,7 +132,7 @@
                         </p>
                     </div>
                     <div class="mt-5">
-                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
+                        <a href="sujets/proba_final.pdf" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700">
                             Voir le sujet
                             <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
                         </a>
