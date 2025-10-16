@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".subject-card");
 
@@ -15,36 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const subjectFilter = document.getElementById("subject-filter");
-  const levelFilter = document.getElementById("level-filter");
-  const cards = document.querySelectorAll(".subject-card");
+    const subjectFilter = document.getElementById("subject-filter");
+    const levelFilter = document.getElementById("level-filter");
+    const cards = document.querySelectorAll(".subject-card");
 
-  function filterCards() {
-    const subject = subjectFilter.value;
-    const level = levelFilter.value;
+    function filterCards() {
+        const subject = subjectFilter.value;
+        const level = levelFilter.value;
 
-    cards.forEach(card => {
-      const cardSubject = card.dataset.subject;
-      const cardLevel = card.dataset.level;
+        cards.forEach(card => {
+            const cardSubject = card.dataset.subject;
+            const cardLevel = card.dataset.level;
 
-      const matchSubject = subject === "all" || cardSubject === subject;
-      const matchLevel = level === "all" || cardLevel === level;
+            const matchSubject = subject === "all" || cardSubject === subject;
+            const matchLevel = level === "all" || cardLevel === level;
 
-      if (matchSubject && matchLevel) {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
-  }
+            if (matchSubject && matchLevel) {
+                card.classList.remove("hidden");
+            } else {
+                card.classList.add("hidden");
+            }
+        });
+    }
 
-  // Écouteurs
-  subjectFilter.addEventListener("change", filterCards);
-  levelFilter.addEventListener("change", filterCards);
+    subjectFilter.addEventListener("change", filterCards);
+    levelFilter.addEventListener("change", filterCards);
 
-  // Appeler au chargement de la page
-  filterCards();
+    filterCards(); // Au chargement
 });
-
-
-</script>
