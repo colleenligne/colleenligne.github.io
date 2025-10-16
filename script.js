@@ -1,46 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".subject-card");
+document.addEventListener("DOMContentLoaded", () => {
+  const subjectFilter = document.getElementById("subject-filter");
+  const levelFilter = document.getElementById("level-filter");
+  const cards = document.querySelectorAll("a[data-subject][data-level]");
+
+  function filterCards() {
+    const subject = subjectFilter.value;
+    const level = levelFilter.value;
 
     cards.forEach(card => {
-  const parent = card.closest("a"); // Trouve le <a> parent qui contient les data-*
-  const cardSubject = parent?.dataset.subject;
-  const cardLevel = parent?.dataset.level;
+      const cardSubject = card.dataset.subject;
+      const cardLevel = card.dataset.level;
 
-        // Make entire card clickable
-        card.addEventListener("click", () => {
-            if (link) {
-                window.open(link, "_blank"); // Open in new tab
-            }
-        });
+      const matchSubject = subject === "all" || cardSubject === subject;
+      const matchLevel = level === "all" || cardLevel === level;
+
+      if (matchSubject && matchLevel) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
     });
-});
+  }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const subjectFilter = document.getElementById("subject-filter");
-    const levelFilter = document.getElementById("level-filter");
-    const cards = document.querySelectorAll(".subject-card");
+  subjectFilter.addEventListener("change", filterCards);
+  levelFilter.addEventListener("change", filterCards);
 
-    function filterCards() {
-        const subject = subjectFilter.value;
-        const level = levelFilter.value;
-
-        cards.forEach(card => {
-            const cardSubject = card.dataset.subject;
-            const cardLevel = card.dataset.level;
-
-            const matchSubject = subject === "all" || cardSubject === subject;
-            const matchLevel = level === "all" || cardLevel === level;
-
-            if (matchSubject && matchLevel) {
-                card.classList.remove("hidden");
-            } else {
-                card.classList.add("hidden");
-            }
-        });
-    }
-
-    subjectFilter.addEventListener("change", filterCards);
-    levelFilter.addEventListener("change", filterCards);
-
-    filterCards(); // Au chargement
+  // Appel initial
+  filterCards();
 });
