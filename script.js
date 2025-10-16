@@ -1,4 +1,50 @@
-function afficherMessage() {
-  const message = document.getElementById("contact-message");
-  message.classList.toggle("hidden");
-}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".subject-card");
+
+    cards.forEach(card => {
+        const link = card.dataset.url;
+
+        // Make entire card clickable
+        card.addEventListener("click", () => {
+            if (link) {
+                window.open(link, "_blank"); // Open in new tab
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const subjectFilter = document.getElementById("subject-filter");
+  const levelFilter = document.getElementById("level-filter");
+  const cards = document.querySelectorAll(".subject-card");
+
+  function filterCards() {
+    const subject = subjectFilter.value;
+    const level = levelFilter.value;
+
+    cards.forEach(card => {
+      const cardSubject = card.dataset.subject;
+      const cardLevel = card.dataset.level;
+
+      const matchSubject = subject === "all" || cardSubject === subject;
+      const matchLevel = level === "all" || cardLevel === level;
+
+      if (matchSubject && matchLevel) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+  }
+
+  // Écouteurs
+  subjectFilter.addEventListener("change", filterCards);
+  levelFilter.addEventListener("change", filterCards);
+
+  // Appeler au chargement de la page
+  filterCards();
+});
+
+
+</script>
