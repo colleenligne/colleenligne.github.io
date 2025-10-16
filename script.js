@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".subject-card");
 
     cards.forEach(card => {
-        const link = card.dataset.url;
+  const parent = card.closest("a"); // Trouve le <a> parent qui contient les data-*
+  const cardSubject = parent?.dataset.subject;
+  const cardLevel = parent?.dataset.level;
 
         // Make entire card clickable
         card.addEventListener("click", () => {
