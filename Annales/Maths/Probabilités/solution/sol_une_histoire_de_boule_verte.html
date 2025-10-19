@@ -75,21 +75,26 @@
             </div>
             <h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
             <div class="text-gray-700 leading-relaxed">
-    <div class="text-gray-800 space-y-4">
-  <p>Pour la première expérience, on note \( V_1 \) et \( O_1 \) les événements : 
-  « la boule verte a été retirée » et 
-  « on obtient 6 fois une boule rouge lors d’un tirage de 6 boules avec remise ».</p>
+    <div class="prose prose-lg max-w-none text-gray-800">
 
-  <p>On note de même, pour la seconde expérience, \( V_2 \) et \( O_2 \) les événements : 
-  « la boule verte a été retirée » et 
-  « on obtient 303 fois une rouge et 297 fois une verte lors d’un tirage de 600 boules avec remise ».</p>
+  <p>
+    Pour la première expérience, on note \( V_1 \) et \( O_1 \) les événements :
+    « la boule verte a été retirée » et
+    « on obtient 6 fois une boule rouge lors d’un tirage de 6 boules avec remise ».
+  </p>
+
+  <p>
+    On note de même, pour la seconde expérience, \( V_2 \) et \( O_2 \) les événements :
+    « la boule verte a été retirée » et
+    « on obtient 303 fois une rouge et 297 fois une verte lors d’un tirage de 600 boules avec remise ».
+  </p>
 
   <p>Pour tout \( i \in \{1,2\} \), on a :</p>
 
   <div>
     \[
-      P(V_i \mid O_i) = \frac{P(O_i \mid V_i)P(V_i)}{P(O_i \mid V_i)P(V_i)+P(O_i \mid \overline{V_i})P(\overline{V_i})}
-      = \varphi(\rho_i)
+    P(V_i \mid O_i) = \frac{P(O_i \mid V_i)P(V_i)}{P(O_i \mid V_i)P(V_i)+P(O_i \mid \overline{V_i})P(\overline{V_i})}
+    = \varphi(\rho_i)
     \]
   </div>
 
@@ -97,46 +102,61 @@
 
   <div>
     \[
-      \rho_i := \frac{P(O_i \mid \overline{V_i})}{P(O_i \mid V_i)}
-      \quad\text{et}\quad 
-      \varphi : x \longmapsto \frac{1}{1+x},
+    \rho_i := \frac{P(O_i \mid \overline{V_i})}{P(O_i \mid V_i)},
+    \quad
+    \varphi : x \longmapsto \frac{1}{1+x}
     \]
   </div>
 
-  <p>car les événements \( V_i \) et leurs contraires sont de même probabilité \( \tfrac{1}{2} \).</p>
+  <p>
+    car les événements \( V_i \) et leurs contraires sont de même probabilité \( \tfrac{1}{2} \).
+  </p>
 
-  <p><strong>Première expérience.</strong> Le nombre de boules rouges tiré suit la loi
-  \( \mathcal{B}\!\left(6, \tfrac{3}{5}\right) \) sachant \( V_1 \),
-  et \( \mathcal{B}\!\left(6, \tfrac{2}{5}\right) \) sachant \( \overline{V_1} \). Ainsi :</p>
+  <h3>Première expérience</h3>
+  <p>
+    Le nombre de boules rouges tiré suit la loi
+    \( \mathcal{B}(6, \tfrac{3}{5}) \) sachant \( V_1 \)
+    et \( \mathcal{B}(6, \tfrac{2}{5}) \) sachant \( \overline{V_1} \).
+    Ainsi :
+  </p>
 
   <div>
     \[
-      \rho_1 = \frac{\left(\tfrac{2}{5}\right)^6}{\left(\tfrac{3}{5}\right)^6}
-      = \left(\frac{2}{3}\right)^6
+    \rho_1 = \frac{(2/5)^6}{(3/5)^6} = \left( \frac{2}{3} \right)^6
     \]
   </div>
 
-  <p><strong>Seconde expérience.</strong> Le nombre de boules rouges tiré suit la loi
-  \( \mathcal{B}\!\left(600, \tfrac{3}{5}\right) \) sachant \( V_2 \),
-  et \( \mathcal{B}\!\left(600, \tfrac{2}{5}\right) \) sachant \( \overline{V_2} \). Ainsi :</p>
+  <h3>Seconde expérience</h3>
+  <p>
+    Le nombre de boules rouges tiré suit la loi
+    \( \mathcal{B}(600, \tfrac{3}{5}) \) sachant \( V_2 \),
+    et \( \mathcal{B}(600, \tfrac{2}{5}) \) sachant \( \overline{V_2} \).
+    Ainsi :
+  </p>
 
   <div>
     \[
-      \rho_2 = 
-      \frac{\left(\tfrac{2}{5}\right)^{303}\left(\tfrac{3}{5}\right)^{297}}{\left(\tfrac{3}{5}\right)^{303}\left(\tfrac{2}{5}\right)^{297}}
-      = \left(\frac{2}{3}\right)^6
+    \rho_2 =
+    \frac{(2/5)^{303}(3/5)^{297}}{(3/5)^{303}(2/5)^{297}}
+    = \left( \frac{2}{3} \right)^6
     \]
   </div>
 
-  <p><strong>Conclusion.</strong> On a donc \( \rho_1 = \rho_2 \), et par conséquent :</p>
+  <h3>Conclusion</h3>
+  <p>
+    On a donc \( \rho_1 = \rho_2 \), et par conséquent :
+  </p>
 
   <div>
     \[
-      P(V_1 \mid O_1) = P(V_2 \mid O_2)
+    P(V_1 \mid O_1) = P(V_2 \mid O_2)
     \]
   </div>
 
-  <p>Les deux compères peuvent donc s’attendre chacun autant à ce qu’une boule verte ait été enlevée.</p>
+  <p>
+    Les deux compères peuvent donc s’attendre chacun autant à ce qu’une boule verte ait été enlevée.
+  </p>
+
 </div>
 
 
