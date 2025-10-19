@@ -86,6 +86,82 @@
     updateChapitres();
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const matiereSelect = document.getElementById("subject-filter");
+    const chapitreSelect = document.getElementById("chapitre-select");
+    const cards = document.querySelectorAll(".problem-card");
+    const tabs = document.querySelectorAll(".tab");
+
+    const chapitresParMatiere = {
+      maths: [
+        { value: "proba", label: "Probabilités" },
+        { value: "serie", label: "Série" },
+      ],
+      phys: [
+        { value: "optique_geo", label: "Optique Géométrique" },
+        { value: "elec", label: "Électrocinétique" },
+      ],
+      chim: [
+        { value: "config_elec", label: "Configuration électronique" },
+        { value: "interactions", label: "Intéractions" },
+      ]
+    };
+
+    let selectedConcours = ""; // empty = all
+
+    function updateChapitres() {
+      const matiere = matiereSelect.value;
+      chapitreSelect.innerHTML = '<option value="">Tous les chapitres</option>';
+      if (chapitresParMatiere[matiere]) {
+        chapitresParMatiere[matiere].forEach(chap => {
+          const opt = document.createElement("option");
+          opt.value = chap.value;
+          opt.textContent = chap.label;
+          chapitreSelect.appendChild(opt);
+        });
+      }
+      filterCards();
+    }
+
+    function filterCards() {
+      const matiere = matiereSelect.value;
+      const chapitre = chapitreSelect.value;
+
+      cards.forEach(card => {
+        const cardMatiere = card.dataset.matiere;
+        const cardChapitre = card.dataset.chapitre;
+        const cardConcours = card.dataset.concours;
+
+        const showByMatiere = !matiere || cardMatiere === matiere;
+        const showByChapitre = !chapitre || cardChapitre === chapitre;
+        const showByConcours = !selectedConcours || cardConcours === selectedConcours;
+
+        const shouldShow = showByMatiere && showByChapitre && showByConcours;
+        card.style.display = shouldShow ? "" : "none";
+      });
+    }
+
+    matiereSelect.addEventListener("change", updateChapitres);
+    chapitreSelect.addEventListener("change", filterCards);
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", (e) => {
+        e.preventDefault();
+        selectedConcours = tab.dataset.concours;
+
+        // Update tab styles
+        tabs.forEach(t => t.classList.remove("active-tab"));
+        tab.classList.add("active-tab");
+
+        filterCards();
+      });
+    });
+
+    // Initial load
+    updateChapitres();
+  });
+</script>
 
 
 </head>
@@ -258,138 +334,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Exam Card 4 -->
-            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                    <div class="flex items-center justify-between">
-                        <span class="px-2 py-1 text-yellow-800 text-xs font-medium bg-yellow-100 rounded-full">
-                            Informatique
-                        </span>
-                        <span class="text-sm text-gray-500">2021</span>
-                    </div>
-                    <div class="mt-4">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Algorithmes de tri</h3>
-                        <p class="mt-1 text-sm text-gray-500">Centrale-Supélec</p>
-                        <p class="mt-2 text-sm text-gray-600">
-                            Comparaison des algorithmes de tri et complexité.
-                        </p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-xs text-gray-500">10 pages</span>
-                        <div class="flex space-x-2">
-                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                Sujet
-                            </a>
-                            <span class="text-gray-300">|</span>
-                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                Correction
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Exam Card 5 -->
-            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                    <div class="flex items-center justify-between">
-                        <span class="px-2 py-1 text-red-800 text-xs font-medium bg-red-100 rounded-full">
-                            Physique
-                        </span>
-                        <span class="text-sm text-gray-500">2020</span>
-                    </div>
-                    <div class="mt-4">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Mécanique des fluides</h3>
-                        <p class="mt-1 text-sm text-gray-500">CCP</p>
-                        <p class="mt-2 text-sm text-gray-600">
-                            Écoulement de Poiseuille et nombre de Reynolds.
-                        </p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-xs text-gray-500">7 pages</span>
-                        <div class="flex space-x-2">
-                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                Sujet
-                            </a>
-                            <span class="text-gray-300">|</span>
-                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                Correction
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Exam Card 6 -->
-            <div class="exam-card bg-white overflow-hidden shadow rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                    <div class="flex items-center justify-between">
-                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Mathématiques
-                        </span>
-                        <span class="text-sm text-gray-500">2023</span>
-                    </div>
-                    <div class="mt-4">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Équations différentielles</h3>
-                        <p class="mt-1 text-sm text-gray-500">Polytechnique</p>
-                        <p class="mt-2 text-sm text-gray-600">
-                            Résolution et étude qualitative d'EDP.
-                        </p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between">
-                        <span class="text-xs text-gray-500">9 pages</span>
-                        <div class="flex space-x-2">
-                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                Sujet
-                            </a>
-                            <span class="text-gray-300">|</span>
-                            <a href="#" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
-                                Correction
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="mt-10 flex items-center justify-between">
-            <div>
-                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                        <span class="sr-only">Previous</span>
-                        <i data-feather="chevron-left" class="h-5 w-5"></i>
-                    </a>
-                    <a href="#" aria-current="page" class="z-10 bg-primary-50 border-primary-500 text-primary-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                        1
-                    </a>
-                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                        2
-                    </a>
-                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                        3
-                    </a>
-                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-                        ...
-                    </span>
-                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                        5
-                    </a>
-                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                        <span class="sr-only">Next</span>
-                        <i data-feather="chevron-right" class="h-5 w-5"></i>
-                    </a>
-                </nav>
-            </div>
-            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
-                    <p class="text-sm text-gray-700">
-                        Affichage de <span class="font-medium">1</span> à <span class="font-medium">6</span> sur <span class="font-medium">24</span> annales
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Footer -->
@@ -414,17 +358,11 @@
             </nav>
             <div class="mt-8 flex justify-center space-x-6">
                 <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <i data-feather="github" class="h-6 w-6"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <i data-feather="twitter" class="h-6 w-6"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-gray-500">
                     <i data-feather="mail" class="h-6 w-6"></i>
                 </a>
             </div>
             <p class="mt-8 text-center text-base text-gray-400">
-                &copy; 2023 Colle En Ligne. Tous droits réservés.
+                &copy; 2025 Colle En Ligne. Tous droits réservés.
             </p>
         </div>
     </footer>
