@@ -4,59 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Annales</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Font + CSS fixes -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
     body {
       font-family: 'Inter', sans-serif;
     }
+
     .problem-card {
       transition: all 0.3s ease;
       border: 1px solid #e5e7eb;
     }
+
     .problem-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
-  mjx-container[jax="SVG"][display="true"] {
-    display: block;
-    margin: 1em 0;
-  }
 
-  mjx-container[jax="SVG"][display="false"] {
-    display: inline;
-  }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    },
-    options: {
-      renderActions: {
-        addMenu: []  // disables the right-click context menu if you want
-      }
-    },
-    svg: {
-      fontCache: 'global'
+    /* ✅ MathJax inline: stay inline, no weird spacing */
+    mjx-container[jax="SVG"][display="false"] {
+      display: inline !important;
+      vertical-align: middle !important;
     }
-  };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 
+    /* ✅ MathJax block: clean spacing */
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      margin: 1em 0;
+    }
+  </style>
+
+  <!-- ✅ MathJax Config (only once!) -->
   <script>
     window.MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['\\[', '\\]'], ['$$', '$$']]
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
       },
-      svg: { fontCache: 'global' }
+      svg: {
+        fontCache: 'global'
+      }
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
 <!-- Navbar -->
@@ -103,13 +101,13 @@
 
     <h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
 
-    <p class="text-gray-700 leading-relaxed max-w-none">
+    <div class="text-gray-700 leading-relaxed max-w-none space-y-4">
 
       <p>Notons \( V \) l'évènement "la boule verte a été retirée", \( A \) l'évènement "on obtient le tirage d'Alice" et \( B \) "on obtient le tirage de B".</p>
 
       <p>Comme dans l'absolu, on ne sait pas calculer la probabilité d'obtenir le tirage d'Alice ou de Bob, on procède par disjonction de cas.</p>
 
-      <!-- Boîte de remarque verte -->
+      <!-- Remarque -->
       <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-md my-4">
         <p class="text-green-800">
           💡 <strong>Remarque :</strong> Raisonner par disjonction en probabilités revient implicitement à appliquer <strong>la formule des probabilités totales</strong>.
@@ -120,31 +118,38 @@
         Il convient de remarquer que l'on cherche à calculer \( \mathbb{P}_A(V) \) et \( \mathbb{P}_B(V) \). Notons \( X \) un événement, soit \( A \) soit \( B \). On applique la formule de Bayes :
       </p>
 
-      \[
-      \mathbb{P}_X(V) = \frac{\mathbb{P}(X \cap V)}{\mathbb{P}(X)}
-      \]
-
-      <p>Alors, pour calculer les probabilités du numérateur et du dénominateur en appliquant <strong>la formule des probabilités totales</strong> avec le système complet d'évènements \(\{V, V^C\}\) :</p>
-
-      \[
-      \mathbb{P}_X(V) = \frac{\mathbb{P}_V(X \cap V) + \mathbb{P}_{V^C}(X \cap V)}{\mathbb{P}_V(X)+\mathbb{P}_{V^C}(X)}
-      \]
-
       <p>
-        Une fois la boule retirée fixée, le nombre de boules rouges obtenues suit une loi binomiale de paramètres \( (n,p) \) avec \( p = \frac{2}{5} \)
-        ou \( \frac{3}{5} \), suivant qu'une boule rouge ou verte a été retirée.
+        \[
+        \mathbb{P}_X(V) = \frac{\mathbb{P}(X \cap V)}{\mathbb{P}(X)}
+        \]
       </p>
 
       <p>
-        En appliquant la formule trouvée précédemment dans les deux cas et en simplifiant, on obtient, dans le cas d'Alice comme dans le cas de Bob :
+        Pour le numérateur et le dénominateur, on applique la formule des probabilités totales avec le système complet \(\{V, V^C\}\) :
       </p>
 
-      \[
-      \mathbb{P}_B(V) = \frac{2^6}{2^6 + 3^6} = \mathbb{P}_A(V)
-      \]
+      <p>
+        \[
+        \mathbb{P}_X(V) = \frac{\mathbb{P}_V(X \cap V) + \mathbb{P}_{V^C}(X \cap V)}{\mathbb{P}_V(X)+\mathbb{P}_{V^C}(X)}
+        \]
+      </p>
+
+      <p>
+        Une fois la boule retirée fixée, le nombre de boules rouges obtenues suit une loi binomiale de paramètres \( (n,p) \), avec \( p = \frac{2}{5} \) ou \( \frac{3}{5} \) selon la couleur retirée.
+      </p>
+
+      <p>
+        En appliquant la formule dans les deux cas et en simplifiant, on obtient :
+      </p>
+
+      <p>
+        \[
+        \mathbb{P}_B(V) = \frac{2^6}{2^6 + 3^6} = \mathbb{P}_A(V)
+        \]
+      </p>
 
       <p><strong>Conclusion :</strong> Alice et Bob ont la même probabilité que l'on ait retiré initialement la boule verte.</p>
-    </p>
+    </div>
 
     <div class="text-center mt-6">
       <a href="/Annales_Oral.html" class="inline-block px-6 py-3 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">
