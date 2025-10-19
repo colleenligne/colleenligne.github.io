@@ -12,3 +12,11 @@
   border-color: #3b82f6; /* Tailwind's blue-500 or your primary color */
   color: #3b82f6;
 }
+
+mjx-container[jax="SVG"][display="false"] {
+  display: inline !important;
+  vertical-align: middle; /* aligne mieux avec le texte */
+  margin: 0 !important;   /* annule toute marge ajoutée */
+  padding: 0 !important;  /* annule padding éventuel */
+  white-space: nowrap;    /* empêche les retours à la ligne à l’intérieur */
+}
