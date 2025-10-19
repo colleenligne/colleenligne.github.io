@@ -60,10 +60,18 @@
     function filterCards() {
       const matiere = matiereSelect.value;
       const chapitre = chapitreSelect.value;
+      console.log("Filtering with:", { matiere, chapitre });
 
       cards.forEach(card => {
         const cardMatiere = card.dataset.matiere;
         const cardChapitre = card.dataset.chapitre;
+        console.log("Card:", {
+  cardMatiere,
+  cardChapitre,
+  showByMatiere,
+  showByChapitre
+});
+
 
         const showByMatiere = !matiere || cardMatiere === matiere;
         const showByChapitre = !chapitre || cardChapitre === chapitre;
