@@ -38,6 +38,16 @@
       display: block;
       margin: 1em 0;
     }
+    /* Force all inline‑math containers to inline display */
+mjx-container[jax="SVG"][display="false"],
+mjx-container[jax="SVG"]:not([display="true"]) {
+  display: inline !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
   </style>
 
   <!-- ✅ MathJax Config (only once!) -->
