@@ -134,28 +134,14 @@
         </div>
 
         <!-- Tabs -->
-        <div class="border-b border-gray-200">
-            <nav class="-mb-px flex space-x-8 overflow-x-auto">
-                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm active-tab">
-                    Tous les concours
-                </a>
-                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    Polytechnique
-                </a>
-                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    ENS
-                </a>
-                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    Mines-Ponts
-                </a>
-                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    Centrale-Supélec
-                </a>
-                <a href="#" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                    CCP
-                </a>
-            </nav>
-        </div>
+        <nav class="-mb-px flex space-x-8 overflow-x-auto" id="concours-tabs">
+  <a href="#" class="tab active-tab" data-concours="">Tous les concours</a>
+  <a href="#" class="tab" data-concours="polytechnique">Polytechnique</a>
+  <a href="#" class="tab" data-concours="ens">ENS</a>
+  <a href="#" class="tab" data-concours="mines-ponts">Mines-Ponts</a>
+  <a href="#" class="tab" data-concours="centrale-supelec">Centrale-Supélec</a>
+  <a href="#" class="tab" data-concours="ccp">CCP</a>
+</nav>
 
         <!-- Filter Section -->
         <div class="my-8 bg-white p-6 rounded-lg shadow">
