@@ -23,70 +23,62 @@
       }
     </style>
     <script>
-  const matiereSelect = document.getElementById("matiere-select");
-  const chapitreSelect = document.getElementById("chapitre-select");
-  const cards = document.querySelectorAll(".problem-card");
+  document.addEventListener("DOMContentLoaded", () => {
+    const matiereSelect = document.getElementById("subject-filter");
+    const chapitreSelect = document.getElementById("chapitre-select");
+    const cards = document.querySelectorAll(".problem-card");
 
-  // Chapitres dépendant de la matière
-  const chapitresParMatiere = {
-    maths: [
-      { value: "proba", label: "Probabilités" },
-      { value: "serie", label: "Série" },
-    ],
-    phys: [
-      { value: "optique_geo", label: "Optique Géométrique" },
-      { value: "elec", label: "Électrocinétique" },
-    ],
-    chim: [
-      { value: "config_elec", label: "Configuration électronique" },
-      { value: "interactions", label: "Intéractions" },
-    ]
-  };
+    const chapitresParMatiere = {
+      maths: [
+        { value: "proba", label: "Probabilités" },
+        { value: "serie", label: "Série" },
+      ],
+      phys: [
+        { value: "optique_geo", label: "Optique Géométrique" },
+        { value: "elec", label: "Électrocinétique" },
+      ],
+      chim: [
+        { value: "config_elec", label: "Configuration électronique" },
+        { value: "interactions", label: "Intéractions" },
+      ]
+    };
 
-  function updateChapitres() {
-    const matiere = matiereSelect.value;
-    chapitreSelect.innerHTML = '<option value="">Tous les chapitres</option>';
-    if (chapitresParMatiere[matiere]) {
-      chapitresParMatiere[matiere].forEach(chap => {
-        const opt = document.createElement("option");
-        opt.value = chap.value;
-        opt.textContent = chap.label;
-        chapitreSelect.appendChild(opt);
+    function updateChapitres() {
+      const matiere = matiereSelect.value;
+      chapitreSelect.innerHTML = '<option value="">Tous les chapitres</option>';
+      if (chapitresParMatiere[matiere]) {
+        chapitresParMatiere[matiere].forEach(chap => {
+          const opt = document.createElement("option");
+          opt.value = chap.value;
+          opt.textContent = chap.label;
+          chapitreSelect.appendChild(opt);
+        });
+      }
+      filterCards();
+    }
+
+    function filterCards() {
+      const matiere = matiereSelect.value;
+      const chapitre = chapitreSelect.value;
+
+      cards.forEach(card => {
+        const cardMatiere = card.dataset.matiere;
+        const cardChapitre = card.dataset.chapitre;
+
+        const showByMatiere = !matiere || cardMatiere === matiere;
+        const showByChapitre = !chapitre || cardChapitre === chapitre;
+
+        card.style.display = (showByMatiere && showByChapitre) ? "" : "none";
       });
     }
-    filterCards();
-  }
 
-  function filterCards() {
-    const matiere = matiereSelect.value;
-    const chapitre = chapitreSelect.value;
+    matiereSelect.addEventListener("change", updateChapitres);
+    chapitreSelect.addEventListener("change", filterCards);
 
-    cards.forEach(card => {
-      const cardMatiere = card.dataset.matiere;
-      const cardChapitre = card.dataset.chapitre;
-
-      const showByMatiere = !matiere || cardMatiere === matiere;
-      const showByChapitre = !chapitre || cardChapitre === chapitre;
-
-      if (showByMatiere && showByChapitre) {
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
-    });
-  }
-
-  matiereSelect.addEventListener("change", () => {
     updateChapitres();
   });
-
-  chapitreSelect.addEventListener("change", () => {
-    filterCards();
-  });
-
-  // Initialiser au chargement
-  updateChapitres();
 </script>
+
 
 </head>
 <body class="bg-gray-50">
@@ -184,12 +176,12 @@
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Une histoire de boule verte.
+                            Probabilités
                         </span>
                         <span class="text-sm text-gray-500">2017</span>
                     </div>
                     <div class="mt-4">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Probabilités</h3>
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Une histoire de boule verte</h3>
                         <p class="mt-1 text-sm text-gray-500">Polytechnique</p>
                         <p class="mt-2 text-sm text-gray-600">
                             Étude de probabilités conditionnelles.
