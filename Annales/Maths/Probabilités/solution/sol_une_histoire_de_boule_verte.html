@@ -28,8 +28,24 @@
     display: inline;
   }
 </style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      renderActions: {
+        addMenu: []  // disables the right-click context menu if you want
+      }
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
 
-  </style>
   <script>
     window.MathJax = {
       tex: {
