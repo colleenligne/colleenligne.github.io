@@ -7,3 +7,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed; /* Optional: makes the image stay while scrolling */
 }
+
+.active-tab {
+  border-color: #3b82f6; /* Tailwind's blue-500 or your primary color */
+  color: #3b82f6;
+}
