@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .problem-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .problem-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="book-open" class="h-8 w-8 text-primary"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</span>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+                    <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+                    </a>
+                    <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="archive" class="mr-1"></i> Annales
+                    </a>
+                    <a href="/Conseils.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <i data-feather="lightbulb" class="mr-1"></i> Conseils
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - X</h2>
+        
+        <div class="problem-card bg-white rounded-lg p-6 mb-12">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-medium px-2 py-1 bg-gray-100 rounded">Probabilités</span>
+                <span class="text-xs text-gray-500">25 min</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
+            <p class="text-gray-600 mb-6">Une urne contient 3 boules vertes et 3 boules rouges. Une boule est enlevée de l’urne au hasard. Alice tire 6 fois une boule avec remise et obtient 6 fois une boule rouge. Bob tire 600 fois une boule avec remise et obtient 303 fois une rouge et 297 fois une verte. Lequel des deux peut « s’attendre le plus » à ce qu’une boule verte ait été enlevée ?
+            <a href="sol_une_histoire_de_boule_verte.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
+                Solution
+                <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+            </a>
+        </div>
+
+
+
+        <div class="text-center">
+            <a href="Annales_Oral.html" class="inline-block px-6 py-3 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">
+                Tous les exercices
+            </a>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-100 py-8 px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="max-w-6xl mx-auto text-center text-sm text-gray-500">
+            <p>© 2025 Hugo Meynet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
