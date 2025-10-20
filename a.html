@@ -4,53 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Annales</title>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-
-  <!-- Font + CSS fixes -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-
-    .problem-card {
-      transition: all 0.3s ease;
-      border: 1px solid #e5e7eb;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    /* ✅ MathJax inline: stay inline, no weird spacing */
-    mjx-container[jax="SVG"][display="false"] {
-      display: inline !important;
-      vertical-align: middle !important;
-    }
-
-    /* ✅ MathJax block: clean spacing */
-    mjx-container[jax="SVG"][display="true"] {
-      display: block;
-      margin: 1em 0;
-    }
-    /* Force all inline‑math containers to inline display */
-mjx-container[jax="SVG"][display="false"],
-mjx-container[jax="SVG"]:not([display="true"]) {
-  display: inline !important;
-  vertical-align: middle !important;
-  white-space: nowrap !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-  </style>
-
-  <!-- ✅ MathJax Config (only once!) -->
   <script>
     window.MathJax = {
       tex: {
@@ -62,8 +15,17 @@ mjx-container[jax="SVG"]:not([display="true"]) {
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    mjx-container[jax="SVG"][display="false"] {
+      display: inline !important;
+      vertical-align: middle !important;
+    }
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      margin: 1em 0;
+    }
+  </style>
 </head>
 <body
 <nav class="bg-white shadow-sm">
@@ -96,6 +58,8 @@ mjx-container[jax="SVG"]:not([display="true"]) {
     </div>
   </div>
 </nav>>
+
+<main class="max-w-5xl w-full mx-auto py-12 px-4 sm:px-6 lg:px-8">
   <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - X</h2>
 
   <div class="problem-card bg-white rounded-lg p-6 mb-12 w-full">
@@ -144,6 +108,6 @@ $$
 $$
 
 <p><strong>Conclusion :</strong> Alice et Bob ont la même probabilité que l'on ait retiré initialement la boule verte.</p>
-
+</
 </body>
 </html>
