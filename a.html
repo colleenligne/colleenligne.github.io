@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Test LaTeX Inline + Tailwind</title>
+  <title>Test Inline Math + Tailwind Neutralisé</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- MathJax v3 -->
+  <!-- MathJax config -->
   <script>
     window.MathJax = {
       tex: {
@@ -20,33 +20,40 @@
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-  <!-- Correctif CSS pour forcer inline -->
   <style>
-    mjx-container[jax="SVG"][display="true"] {
-      display: block;
-      margin: 1em 0;
+    /* Neutralisation des styles sur le conteneur .no-tailwind */
+    .no-tailwind, .no-tailwind * {
+      all: unset;
+      display: revert;
+      font-family: revert;
+      font-size: revert;
+      vertical-align: revert;
+      margin: revert;
+      padding: revert;
+      line-height: revert;
+      color: revert;
     }
 
-    mjx-container[jax="SVG"][display="false"] {
-      display: inline !important;
+    /* Réactiver l'affichage inline pour les maths */
+    mjx-container[display="false"] {
+      display: inline-block !important;
+      vertical-align: middle;
     }
   </style>
 </head>
 <body class="p-6 text-lg">
 
-  <p>
-    Ceci est une équation inline avec MathJax : \( a^2 + b^2 = c^2 \), et elle devrait être
-    dans la même ligne.
+  <p class="mb-4">
+    Ceci est du texte stylé avec Tailwind, et une équation inline ici devrait poser problème :
+    \( a^2 + b^2 = c^2 \)
   </p>
 
-  <p>
-    Et ici une autre : $E = mc^2$ — toujours inline.
-  </p>
-
-  <p>
-    Equation en bloc (display):  
-    $$\int_{0}^{\infty} e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$
-  </p>
+  <div class="no-tailwind">
+    <p>
+      Ceci est dans un conteneur **sans Tailwind** :
+      \( a^2 + b^2 = c^2 \)
+    </p>
+  </div>
 
 </body>
 </html>
