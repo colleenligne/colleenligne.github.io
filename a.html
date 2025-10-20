@@ -2,57 +2,122 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Test Inline Math + Tailwind Neutralisé</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annales</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+   <!-- Tailwind CSS -->
 
-  <!-- MathJax config -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['\\(', '\\)'], ['$', '$']]
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
       },
       svg: {
         fontCache: 'global'
       }
     };
   </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <style>
-    /* Neutralisation des styles sur le conteneur .no-tailwind */
-    .no-tailwind, .no-tailwind * {
-      all: unset;
-      display: revert;
-      font-family: revert;
-      font-size: revert;
-      vertical-align: revert;
-      margin: revert;
-      padding: revert;
-      line-height: revert;
-      color: revert;
+    mjx-container[jax="SVG"][display="false"] {
+      display: inline !important;
+      vertical-align: middle !important;
     }
-
-    /* Réactiver l'affichage inline pour les maths */
-    mjx-container[display="false"] {
-      display: inline-block !important;
-      vertical-align: middle;
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      margin: 1em 0;
     }
+  .mjx-math {
+    display: inline !important;
+    }
+</style>
   </style>
+        <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="p-6 text-lg">
-
-  <p class="mb-4">
-    Ceci est du texte stylé avec Tailwind, et une équation inline ici devrait poser problème :
-    \( a^2 + b^2 = c^2 \)
-  </p>
-
-  <div class="no-tailwind">
-    <p>
-      Ceci est dans un conteneur **sans Tailwind** :\( a^2 + b^2 = c^2 \)
-    </p>
+<body class="bg-gray-50 text-gray-800">
+<nav class="bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="/index.html">
+            <i data-feather="book-open" class="h-8 w-8 text-purple-600"></i>
+          </a>
+          <span class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</span>
+        </div>
+      </div>
+      <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+        <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+        </a>
+        <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <i data-feather="archive" class="mr-1"></i> Annales
+        </a>
+        <a href="/Conseils.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <i data-feather="lightbulb" class="mr-1"></i> Conseils
+        </a>
+      </div>
+      <div class="-mr-2 flex items-center sm:hidden">
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </div>
   </div>
+</nav>
 
+<main class="max-w-5xl w-full mx-auto py-12 px-4 sm:px-6 lg:px-8">
+  <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - X</h2>
+
+  <div class="problem-card bg-white rounded-lg p-6 mb-12 w-full">
+    <div class="flex items-center justify-between mb-4">
+      <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">Probabilités</span>
+      <span class="text-xs text-gray-500">25 min</span>
+    </div>
+<h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
+<p>Notons <span>V</span> l'évènement "la boule verte a été retirée", <span>A</span> l'évènement "on obtient le tirage d'Alice" et <span>B</span> "on obtient le tirage de Bob".</p>
+
+<p>Comme dans l'absolu, on ne sait pas calculer la probabilité d'obtenir le tirage d'Alice ou de Bob, on procède par disjonction de cas.</p>
+
+<!-- Remarque -->
+<div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-md my-4">
+  <p class="text-green-800">
+    💡 <strong>Remarque :</strong> Raisonner par disjonction en probabilités revient implicitement à appliquer <strong>la formule des probabilités totales</strong>.
+  </p>
+</div>
+
+<p>
+  Il convient de remarquer que l'on cherche à calculer \( \mathbb{P}_A(V) \) et \( \mathbb{P}_B(V) \). Notons \( X \) un événement, soit \( A \) soit \( B \). On applique la formule de Bayes :
+</p>
+
+$$
+\mathbb{P}_X(V) = \frac{\mathbb{P}(X \cap V)}{\mathbb{P}(X)}
+$$
+
+<p>
+  Pour le numérateur et le dénominateur, on applique la formule des probabilités totales avec le système complet \(\{V, V^C\}\) :
+</p>
+
+$$
+\mathbb{P}_X(V) = \frac{\mathbb{P}_V(X \cap V) + \mathbb{P}_{V^C}(X \cap V)}{\mathbb{P}_V(X)+\mathbb{P}_{V^C}(X)}
+$$
+
+<p>
+  Une fois la boule retirée fixée, le nombre de boules rouges obtenues suit une loi binomiale de paramètres \( (n,p) \), avec \( p = \frac{2}{5} \) ou \( \frac{3}{5} \) selon la couleur retirée.
+</p>
+
+<p>
+  En appliquant la formule dans les deux cas et en simplifiant, on obtient :
+</p>
+
+$$
+\mathbb{P}_B(V) = \frac{2^6}{2^6 + 3^6} = \mathbb{P}_A(V)
+$$
+
+<p><strong>Conclusion :</strong> Alice et Bob ont la même probabilité que l'on ait retiré initialement la boule verte.</p>
+</main>
 </body>
 </html>
