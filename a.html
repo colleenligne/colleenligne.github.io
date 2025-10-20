@@ -6,7 +6,7 @@
   <title>Annales</title>
 
    <!-- Tailwind CSS -->
-
+    <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 
   <script>
@@ -89,7 +89,7 @@
   </p>
 </div>
 
-<p>
+<p class="whitespace-nowrap">
   Il convient de remarquer que l'on cherche à calculer \( \mathbb{P}_A(V) \) et \( \mathbb{P}_B(V) \). Notons \( X \) un événement, soit \( A \) soit \( B \). On applique la formule de Bayes :
 </p>
 
@@ -97,7 +97,7 @@ $$
 \mathbb{P}_X(V) = \frac{\mathbb{P}(X \cap V)}{\mathbb{P}(X)}
 $$
 
-<p>
+<p class="whitespace-nowrap">
   Pour le numérateur et le dénominateur, on applique la formule des probabilités totales avec le système complet \(\{V, V^C\}\) :
 </p>
 
@@ -105,7 +105,7 @@ $$
 \mathbb{P}_X(V) = \frac{\mathbb{P}_V(X \cap V) + \mathbb{P}_{V^C}(X \cap V)}{\mathbb{P}_V(X)+\mathbb{P}_{V^C}(X)}
 $$
 
-<p>
+<p class="whitespace-nowrap">
   Une fois la boule retirée fixée, le nombre de boules rouges obtenues suit une loi binomiale de paramètres \( (n,p) \), avec \( p = \frac{2}{5} \) ou \( \frac{3}{5} \) selon la couleur retirée.
 </p>
 
