@@ -2,7 +2,55 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Test MathJax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annales</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Font + CSS fixes -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .problem-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ✅ MathJax inline: stay inline, no weird spacing */
+    mjx-container[jax="SVG"][display="false"] {
+      display: inline !important;
+      vertical-align: middle !important;
+    }
+
+    /* ✅ MathJax block: clean spacing */
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      margin: 1em 0;
+    }
+    /* Force all inline‑math containers to inline display */
+mjx-container[jax="SVG"][display="false"],
+mjx-container[jax="SVG"]:not([display="true"]) {
+  display: inline !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+  </style>
+
+  <!-- ✅ MathJax Config (only once!) -->
   <script>
     window.MathJax = {
       tex: {
@@ -14,17 +62,8 @@
       }
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <style>
-    mjx-container[jax="SVG"][display="false"] {
-      display: inline !important;
-      vertical-align: middle !important;
-    }
-    mjx-container[jax="SVG"][display="true"] {
-      display: block;
-      margin: 1em 0;
-    }
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body
 <nav class="bg-white shadow-sm">
