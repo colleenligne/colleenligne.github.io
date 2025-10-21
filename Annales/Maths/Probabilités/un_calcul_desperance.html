@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathJax Exercises</title>
+    <title>Colle en Ligne - Annales</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
@@ -106,52 +106,23 @@ mjx-container[jax="SVG"]:not([display="true"]) {
         <div class="max-w-4xl mx-auto">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Une histoire de boule verte.</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Un calcul d'esperance.</h2>
                     <div class="flex items-center justify-between mb-4">
-                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">Probabilités</span>
-                        <span class="text-xs text-gray-500">25 min</span>
+                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">Probabilités.</span>
+                        <span class="text-xs text-gray-500">50 minutes</span>
                     </div>
                     <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
-                        <p>Notons \(V\) l'évènement "la boule verte a été retirée", \(A \) l'évènement "on obtient le tirage d'Alice" et \(B\) "on obtient le tirage de Bob".
-                        <br><br>Comme dans l'absolu, on ne sait pas calculer la probabilité d'occurence du tirage d'Alice ou de Bob, on procède par <strong>disjonction de cas</strong>.</p>
-
-                        <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-md my-4">
-                            <p class="text-green-800">
-          💡                    <strong>Remarque :</strong> Raisonner par disjonction en probabilités revient implicitement à appliquer <strong>la formule des probabilités totales</strong>.
-                            </p>
-                        </div>
-
-                        <p>Il convient de remarquer que l'on cherche à calculer  \( \mathbb{P}_A(V) \)  et  \( \mathbb{P}_B(V) \). Notons \( X \) un événement, soit \( A \) soit \( B \). On applique la formule de Bayes :</p>
+                        Soient \(X\) et \(Y\) deux variables aléatoires strictement positives de même loi, admettant toutes deux des espérances. Supposant que \(\frac{X}{Y}\) admette une espérance, montrer :
                         $$
-                        \mathbb{P}_X(V) = \frac{\mathbb{P}(X \cap V)}{\mathbb{P}(X)}
-                        $$
-                        <p>
-                        Pour le numérateur et le dénominateur, on applique la formule des probabilités totales avec le système complet \(\{V, V^C\}\) :
-                        </p>
-
-
-                        $$
-                        \mathbb{P}_X(V) = \frac{\mathbb{P}_V(X \cap V) + \mathbb{P}_{V^C}(X \cap V)}{\mathbb{P}_V(X)+\mathbb{P}_{V^C}(X)}
+                        \mathbb{E}(\frac{X}{Y}) \geq 1
                         $$
 
-                        <p>
-                            Une fois la boule retirée fixée, le nombre de boules rouges obtenues suit une loi binomiale de paramètres \( (n,p) \), avec \( p = \frac{2}{5} \) ou \( \frac{3}{5} \) selon la couleur retirée.
-                        <br><br>
-                        En appliquant la formule dans les deux cas et en simplifiant, on obtient :
-                        </p>
-
-                        $$
-                        \mathbb{P}_B(V) = \frac{2^6}{2^6 + 3^6} = \mathbb{P}_A(V)
-                        $$
-
-                        <p><strong>Conclusion :</strong> Alice et Bob ont la même probabilité que l'on ait retiré initialement la boule verte.<br><br></p>
-                        <a href="/Annales/Maths/Probabilités/une_histoire_de_boule_verte.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
-                        Énoncé
+                        <a href="/Annales/Maths/Probabilités/solution/sol_un_calcul_desperance.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
+                        Solution
                             <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
                         </a>
                     </div>
-
-            
+                  
                 </div>
             </div>
         </div>
