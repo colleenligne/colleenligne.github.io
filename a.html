@@ -6,8 +6,10 @@
   <title>Annales</title>
 
    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+<script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/feather-icons"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <script>
     window.MathJax = {
@@ -78,7 +80,9 @@
       <span class="text-xs text-gray-500">25 min</span>
     </div>
 <h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
-<p>Notons <span>V</span> l'évènement "la boule verte a été retirée", <span>A</span> l'évènement "on obtient le tirage d'Alice" et <span>B</span> "on obtient le tirage de Bob".</p>
+ <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
+                        <!-- Math content will be rendered here -->
+                        <<p>Notons <span>V</span> l'évènement "la boule verte a été retirée", <span>A</span> l'évènement "on obtient le tirage d'Alice" et <span>B</span> "on obtient le tirage de Bob".</p>
 
 <p>Comme dans l'absolu, on ne sait pas calculer la probabilité d'obtenir le tirage d'Alice ou de Bob, on procède par disjonction de cas.</p>
 
@@ -118,6 +122,10 @@ $$
 $$
 
 <p><strong>Conclusion :</strong> Alice et Bob ont la même probabilité que l'on ait retiré initialement la boule verte.</p>
+                    </div>
+
+
+
 </main>
 </body>
 </html>
