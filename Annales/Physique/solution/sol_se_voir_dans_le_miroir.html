@@ -112,13 +112,16 @@ mjx-container[jax="SVG"]:not([display="true"]) {
                         <span class="text-xs text-gray-500">20 minutes</span>
                     </div>
                     <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
-                        Considérons un homme qui se regarde dans le miroir. Supposons que l'homme se tienne droit, et dont qu'il est orthogonal au sol, et qu'il est de même pour le miroir. Nous noterons la hauteur du sol aux yeux \(H\) et la hauteur des yeux au haut du crane \(h\). <br><br>
-                        Le miroir est à une distance \(D=2m\) de l'homme. On note les hauteurs \(h_1\) entre le sol et le bas du miroir et \(H_1\) entre le bas et le haut du miroir.<br><br>
-
-                          <strong>1.</strong> Calculer \(h_1\) et \(H_1\) tels que l'homme se voit dans le miroir.</li><br>
-                          <strong>2.</strong> Si l'homme s'approche, se voit-il toujours en entier ?</li><br><br>
-                        <a href="/Annales/Physique/solution/sol_se_voir_dans_le_miroir.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
-                        Solution
+                        <strong>1. </strong> Pour se voir dans le miroir en entier, il doit exister un premier rayon qui relie les yeux de l'homme à ses pieds (\textit{c'est-à-dire que l'homme pourra voir ses yeux}) et un second liant ses yeux au haut de son crâne. <br><br>
+                        Supposons que ces rayons \textit{existent} et notons \(A\) le point d'intersection entre le premier rayon et le plan du miroir, \(B\) celui avec le deuxième rayon.<br><br>
+                        En notant \(z\) l'axe vertical, d'origine au niveau du sol, alors on peut montrer que \(z_A = \frac{H}{2}\) et que \(z_B = H + \frac{h}{2}\) en considérant les triangles équilatéraux décrits par les rayons. <br><br>
+                        Dès lors, pour que les \textit{rayons existent}, c'est-à-dire que \(A\) et \(B\) soient sur le miroir, il faut donc que \(z_A, z_b \in [h_1, h_1 + H_1]\). Ce qui se traduit par :
+                        $$
+                        \fbox{$z_A \geq h_1 \qquad \text{et} \qquad z_b \leq h_1 + H_1$}
+                        $$
+                        <strong>2.</strong> De fait, ces conditions ne dépendent aucunement de \(D\). Il apparait donc ce paradoxe : l'homme peut s'approcher ou s'éloigner, rien ne change, il se verra toujours en entier.<br><br>
+                        <a href="/Annales/Physique/se_voir_dans_le_miroir.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
+                        Énoncé
                             <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
                         </a>
                     </div>
