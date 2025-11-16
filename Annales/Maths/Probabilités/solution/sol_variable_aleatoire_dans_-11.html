@@ -1,12 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colle en Ligne - Annales</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
@@ -21,7 +26,23 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
     </style>
+
+    <!-- MathJax (obligatoire pour afficher le LaTeX !) -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async 
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
 </head>
+
+<body>
 <nav class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -54,29 +75,93 @@
     </nav>
 
     <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - X</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - ENS</h2>
         
         <div class="problem-card bg-white rounded-lg p-6 mb-12">
             <div class="flex items-center justify-between mb-4">
                 <span class="text-xs font-medium px-2 py-1 bg-gray-100 rounded">Probabilités</span>
-                <span class="text-xs text-gray-500">25 min</span>
+                <span class="text-xs text-gray-500">50 minutes</span>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
-            <p class="text-gray-600 mb-6">Une urne contient 3 boules vertes et 3 boules rouges. Une boule est enlevée de l’urne au hasard. Alice tire 6 fois une boule avec remise et obtient 6 fois une boule rouge. Bob tire 600 fois une boule avec remise et obtient 303 fois une rouge et 297 fois une verte. Lequel des deux peut « s’attendre le plus » à ce qu’une boule verte ait été enlevée ?<br><br>
+            <h3 class="text-xl font-semibold mb-3">Variable aléatoire dans {-1,1}.</h3>
             
-            <a href="solution/sol_une_histoire_de_boule_verte.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
-                Solution
-                <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-            </a>
-        </div>
+            <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
 
+    <ol class="list-decimal pl-5 space-y-4">
+        <li>
+            <p>Soient $a>0$ et $t>0$. On peut se convaincre que $e^{S_n t}$ admet une espérance finie car $S_n(\Omega)$ est fini.  
+            Commençons par remarquer, par croissance de l'exponentielle, l'égalité des événements :</p>
+            \[
+            (S_n \geq \epsilon) = (e^{S_n t} \geq e^{\epsilon t})
+            \]
+            <p>Alors, on applique l'inégalité de Markov, avec $\epsilon = a$ :</p>
+            \[
+            \mathbb{P}\left(e^{S_n t} \geq e^{a t}\right) \leq \frac{\mathbb{E}\left(e^{S_n t}\right)}{e^{a t}}
+            \]
+            <p>Ce qui donne :</p>
+            \[
+            \fbox{$\mathbb{P}(S_n \geq a) \leq \mathbb{E}\left(e^{S_n t}\right)e^{-a t}$}
+            \]
+        </li>
 
+        <li>
+            <p>Les variables aléatoires sont <strong>indépendantes</strong>, donc :</p>
+            \[
+            \mathbb{E}(e^{t S_n}) = \mathbb{E}\left(\prod_{k=1}^{n} e^{t X_k} \right) 
+            = \prod_{k=1}^{n} \mathbb{E}(e^{t X_k}) 
+            = \prod_{k=1}^{n} \left[ \frac{1}{2} e^{-t} + \frac{1}{2} e^t \right]
+            = \prod_{k=1}^{n} \cosh(t)
+            = \fbox{$\cosh^n(t)$}
+            \]
+        </li>
 
-        <div class="text-center">
-            <a href="/Annales_Oral.html" class="inline-block px-6 py-3 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">
-                Tous les exercices
-            </a>
-        </div>
+        <li>
+            <p>Pour démontrer l'inégalité attendue, on part du développement en série entière :</p>
+            \[
+            e^x = \sum_{k=0}^{+\infty} \frac{x^k}{k!}, \quad x \in \mathbb{R}
+            \]
+            <p>Alors, en faisant le remplacement $x \mapsto \frac{x^2}{2}$ :</p>
+            \[
+            e^{\frac{x^2}{2}} = \sum_{k=0}^{+\infty} \frac{x^{2k}}{2^k k!}
+            \]
+            <p>De plus, le développement de $\cosh(x)$ :</p>
+            \[
+            \cosh(x) = \sum_{k=0}^{+\infty} \frac{x^{2k}}{(2k)!}
+            \]
+            <p>On obtient :</p>
+            \[
+            \forall k \in \mathbb{N}, \quad \frac{1}{(2k)!} \le \frac{1}{2^k k!} \implies \frac{x^{2k}}{(2k)!} \le \frac{x^{2k}}{2^k k!}
+            \]
+            <p>Donc :</p>
+            \[
+            \fbox{$\cosh(x) \le e^{\frac{x^2}{2}}$}
+            \]
+        </li>
+
+        <li>
+            <p>Remarquons l'union disjointe :</p>
+            \[
+            (|S_n| \ge a) = (S_n \ge a) \cup (S_n \le -a)
+            \]
+            <p>Or, comme les $X_k(\Omega)$ sont invariants par multiplication par $-1$ :</p>
+            \[
+            \mathbb{P}(S_n \le -a) = \mathbb{P}(S_n \ge a)
+            \]
+            <p>On repart sur notre majoration :</p>
+            \[
+            \mathbb{P}(|S_n| \ge a) = 2 \times \mathbb{P}(S_n \ge a) \le 2 \mathbb{E}(e^{t S_n}) e^{-a t} \le 2 \cosh^n(t) e^{-a t} \le 2 e^{n \frac{t^2}{2} - a t}
+            \]
+            <p>Minimisation :</p>
+            \[
+            f'(t) = (n t - a) e^{n \frac{t^2}{2} - a t} \implies t = \frac{a}{n} \text{ minimum}
+            \]
+            \[
+            \fbox{$\mathbb{P}(|S_n| \ge a) \le 2 e^{-\frac{a^2}{2 n}}$}
+            \]
+        </li>
+    </ol>
+
+</div>
+
     </main>
 
     <footer class="border-t border-gray-100 py-8 px-4 sm:px-6 lg:px-8 mt-12">
@@ -88,5 +173,6 @@
     <script>
         feather.replace();
     </script>
+
 </body>
 </html>

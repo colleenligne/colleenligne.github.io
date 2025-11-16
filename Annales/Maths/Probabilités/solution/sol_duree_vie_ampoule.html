@@ -1,12 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colle en Ligne - Annales</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
@@ -21,7 +26,23 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
     </style>
+
+    <!-- MathJax (obligatoire pour afficher le LaTeX !) -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async 
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
 </head>
+
+<body>
 <nav class="bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -54,17 +75,54 @@
     </nav>
 
     <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - X</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">Annales d'oraux - ENS</h2>
         
         <div class="problem-card bg-white rounded-lg p-6 mb-12">
             <div class="flex items-center justify-between mb-4">
                 <span class="text-xs font-medium px-2 py-1 bg-gray-100 rounded">Probabilités</span>
-                <span class="text-xs text-gray-500">25 min</span>
+                <span class="text-xs text-gray-500">50 minutes</span>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Une histoire de boule verte.</h3>
-            <p class="text-gray-600 mb-6">Une urne contient 3 boules vertes et 3 boules rouges. Une boule est enlevée de l’urne au hasard. Alice tire 6 fois une boule avec remise et obtient 6 fois une boule rouge. Bob tire 600 fois une boule avec remise et obtient 303 fois une rouge et 297 fois une verte. Lequel des deux peut « s’attendre le plus » à ce qu’une boule verte ait été enlevée ?<br><br>
+            <h3 class="text-xl font-semibold mb-3">Durée de vie d'une ampoule</h3>
             
-            <a href="solution/sol_une_histoire_de_boule_verte.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
+            <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
+
+                <p class="text-green-800"><strong>Remarque :</strong> On suppose que l'ampoule est allumée le jour \(n\), alors \(X > n\) et donc la <em>moyenne</em> que l'on cherche à calculer est, implicitement, la moyenne <strong>pondérée par les probabilités</strong>, ce qui correspond à \(\mathbb{E} (X \mid X \geq n)\).</p>
+
+
+                <p><br>Déterminons déjà la probabilité associée :</p>
+                <p>
+                    \[
+                    \begin{aligned}
+                    \forall k \in \mathbb{N}, \qquad 
+                    \mathbb{P}(X = n + k \mid X > n) 
+                    &= \frac{\mathbb{P}\big(  X = n + k  \cap  X > n  \big)}{\mathbb{P}(X > n)} \\[2mm]
+                    &= \frac{\mathbb{P}(X = n + k)}{\mathbb{P}(X > n)} \\[2mm]
+                    &= \frac{2^{-(n+k)}}{\sum_{i = n+1}^{+\infty} 2^{-i}} \\[2mm]
+                    &= \frac{2^{-(n+k)}}{2^{-(n+1)} \displaystyle\sum_{i=0}^{+\infty} 2^{-i}} \\[2mm]
+                    &= \frac{2^{-(n+k)}}{2^{-(n+1)} \times 2} \\[2mm]
+                    &= 2^{-k}
+                    \end{aligned}
+                    \]
+                </p>
+
+                <p>Calculons à présent l'espérance recherchée :</p>
+                <p>
+                    \[
+                    \begin{aligned}
+                    \mathbb{E} (X\mid X\geq n) 
+                    &= \sum_{k=1}^{+\infty} (n-1+k)\times \mathbb{P}(X=n-1+k \mid X > n-1)\\
+                    &= \sum_{k=1}^{+\infty} (n-1+k) 2^{-k}\\
+                    &= (n-1)\sum_{k=1}^{+\infty} 2^{-k} + \sum_{k=1}^{+\infty} k2^{-k}
+                    \end{aligned}
+                    \]
+                </p>
+
+                <p>Pour la somme de gauche, on reconnait, au terme pour \(k=0\) près, une série géométrique de raison \(\frac{1}{2}\) et, pour le terme de droite, une série géométrique dérivée de même raison. La première vaut \(\frac{1}{2}\times 2 = 1\) et la seconde vaut \(\frac{1/2}{(1-1/2)^2} = 2\). D'où :</p>
+
+                <p style="text-align:center;">
+                    <strong>\(\mathbb{E} (X\mid X\geq n) = n+1\)</strong>
+                </p>
+            <a href="solution/sol_variable_aleatoire_dans_-11.html" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
                 Solution
                 <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
             </a>
@@ -88,5 +146,6 @@
     <script>
         feather.replace();
     </script>
+
 </body>
 </html>
