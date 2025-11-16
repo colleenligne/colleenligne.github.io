@@ -106,16 +106,57 @@ mjx-container[jax="SVG"]:not([display="true"]) {
         <div class="max-w-4xl mx-auto">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div class="p-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4"> ###TITRE####</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4"> Équivalence Thévenin-Norton</h2>
                     <div class="flex items-center justify-between mb-4">
-                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">####CHAPITRE###</span>
-                        <span class="text-xs text-gray-500">###DUREE###</span>
+                        <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">Électrocinétique</span>
+                        <span class="text-xs text-gray-500">30 minutes</span>
                     </div>
-                    <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
+                    <div id="math-content" class="prose max-w-none p-4 bg-white-50 rounded-lg">
+                          <p>
+                          Les modèles de Thévenin et de Norton, plus précisément <strong>le passage d'un modèle à l'autre</strong>, est un outil très puissant pour la résolution de problèmes d'électrocinétique.
+                          </p>
+                          <br>
+                          <h1 class="font-bold text-xl">Équivalence Thévenin-Norton</h1>
+                          <br>
+                          <div class="circuit">
+                            <!-- Replace this image with a generated circuit diagram from circuitikz -->
+                            <img src="thev_circuit1.png" alt="Circuit d'application" style="max-width:90%; display:block; margin:0 auto;">
 
+                          </div>
+                          <br>
+                          <ol>
+                            <li>1- Exprimer \(u\) en fonction des autres paramètres dans le premier circuit.</li>
+                            <br>
+                            <li>
+                              2- Exprimer \(i\), puis \(u\) en fonction des autres paramètres dans le deuxième circuit. 
+                              Dans l'expression de \(u\), à quoi est homogène le terme indépendant de \(i\) ?
+                            </li>
+                            <br>
+                            <li>3- Déterminer les valeurs de \(I_0\) et de \(R_2\) pour que \(u\) soit égale dans les deux circuits.</li>
+                          </ol>
+
+                          <p>
+                          Cette transformation sert à passer, <em>fictivement</em>, d'un générateur de tension à un de courant, et inversement.
+                          </p>
+                          <br>
+                          <h1 class="font-bold text-xl">Application</h3>
+
+                          <div class="flex items-center">
+  <!-- Left column: text -->
+  <div class="w-1/2 pr-4">
+    <p>
+      On considère le circuit ci-joint. Déterminer, fort de ce qui précède, 
+      les valeurs de <strong>i₁</strong>, <strong>i₂</strong> et <strong>i₃</strong> en fonctions des autres paramètres.
+    </p>
+  </div>
+
+  <!-- Right column: image -->
+  <div class="w-1/2 pl-4">
+    <img src="thev_circuit2.png" alt="Circuit d'application" class="max-w-full block mx-auto">
+  </div>
+</div>
 
                         <a href="###LIEN###" class="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
-                        Énoncé
                             <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
                         </a>
                     </div>

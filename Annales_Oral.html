@@ -23,146 +23,78 @@
       }
     </style>
     <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const matiereSelect = document.getElementById("subject-filter");
-    const chapitreSelect = document.getElementById("chapitre-select");
-    const cards = document.querySelectorAll(".problem-card");
+document.addEventListener("DOMContentLoaded", () => {
+  const matiereSelect = document.getElementById("subject-filter");
+  const chapitreSelect = document.getElementById("chapitre-select");
+  const tabs = document.querySelectorAll(".tab");
+  const cards = document.querySelectorAll(".exam-card, .problem-card");
 
-    const chapitresParMatiere = {
-      maths: [
-        { value: "proba", label: "Probabilités" },
-        { value: "serie", label: "Série" },
-      ],
-      phys: [
-        { value: "optique_geo", label: "Optique Géométrique" },
-        { value: "elec", label: "Électrocinétique" },
-      ],
-      chim: [
-        { value: "config_elec", label: "Configuration électronique" },
-        { value: "interactions", label: "Intéractions" },
-      ]
-    };
+  const chapitresParMatiere = {
+    maths: [
+      { value: "proba", label: "Probabilités" },
+      { value: "serie", label: "Série" },
+      { value: "alg_gen", label: "Algèbre générale" }
+    ],
+    phys: [
+      { value: "optique_geo", label: "Optique Géométrique" },
+      { value: "elec", label: "Électrocinétique" }
+    ],
+    chim: [
+      { value: "config_elec", label: "Configuration électronique" },
+      { value: "interactions", label: "Interactions" }
+    ]
+  };
 
-    function updateChapitres() {
-      const matiere = matiereSelect.value;
-      chapitreSelect.innerHTML = '<option value="">Tous les chapitres</option>';
-      if (chapitresParMatiere[matiere]) {
-        chapitresParMatiere[matiere].forEach(chap => {
-          const opt = document.createElement("option");
-          opt.value = chap.value;
-          opt.textContent = chap.label;
-          chapitreSelect.appendChild(opt);
-        });
-      }
-      filterCards();
-    }
+  let selectedConcours = "";
 
-    function filterCards() {
-      const matiere = matiereSelect.value;
-      const chapitre = chapitreSelect.value;
-      console.log("Filtering with:", { matiere, chapitre });
-
-      cards.forEach(card => {
-        const cardMatiere = card.dataset.matiere;
-        const cardChapitre = card.dataset.chapitre;
-        console.log("Card:", {
-  cardMatiere,
-  cardChapitre,
-  showByMatiere,
-  showByChapitre
-});
-
-
-        const showByMatiere = !matiere || cardMatiere === matiere;
-        const showByChapitre = !chapitre || cardChapitre === chapitre;
-
-        card.style.display = (showByMatiere && showByChapitre) ? "" : "none";
+  function updateChapitres() {
+    const matiere = matiereSelect.value;
+    chapitreSelect.innerHTML = '<option value="">Tous les chapitres</option>';
+    if (chapitresParMatiere[matiere]) {
+      chapitresParMatiere[matiere].forEach(chap => {
+        const opt = document.createElement("option");
+        opt.value = chap.value;
+        opt.textContent = chap.label;
+        chapitreSelect.appendChild(opt);
       });
     }
+    filterCards();
+  }
 
-    matiereSelect.addEventListener("change", updateChapitres);
-    chapitreSelect.addEventListener("change", filterCards);
+  function filterCards() {
+    const matiere = matiereSelect.value;
+    const chapitre = chapitreSelect.value;
 
-    updateChapitres();
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const matiereSelect = document.getElementById("subject-filter");
-    const chapitreSelect = document.getElementById("chapitre-select");
-    const cards = document.querySelectorAll(".problem-card");
-    const tabs = document.querySelectorAll(".tab");
+    cards.forEach(card => {
+      const cardMatiere = card.dataset.matiere;
+      const cardChapitre = card.dataset.chapitre;
+      const cardConcours = card.dataset.concours;
 
-    const chapitresParMatiere = {
-      maths: [
-        { value: "proba", label: "Probabilités" },
-        { value: "serie", label: "Série" },
-        {value : "alg_gen", label: "Algèbre générale"}
-      ],
-      phys: [
-        { value: "optique_geo", label: "Optique Géométrique" },
-        { value: "elec", label: "Électrocinétique" },
-      ],
-      chim: [
-        { value: "config_elec", label: "Configuration électronique" },
-        { value: "interactions", label: "Intéractions" },
-      ]
-    };
+      const showByMatiere = !matiere || cardMatiere === matiere;
+      const showByChapitre = !chapitre || cardChapitre === chapitre;
+      const showByConcours = !selectedConcours || cardConcours === selectedConcours;
 
-    let selectedConcours = ""; // empty = all
-
-    function updateChapitres() {
-      const matiere = matiereSelect.value;
-      chapitreSelect.innerHTML = '<option value="">Tous les chapitres</option>';
-      if (chapitresParMatiere[matiere]) {
-        chapitresParMatiere[matiere].forEach(chap => {
-          const opt = document.createElement("option");
-          opt.value = chap.value;
-          opt.textContent = chap.label;
-          chapitreSelect.appendChild(opt);
-        });
-      }
-      filterCards();
-    }
-
-    function filterCards() {
-      const matiere = matiereSelect.value;
-      const chapitre = chapitreSelect.value;
-
-      cards.forEach(card => {
-        const cardMatiere = card.dataset.matiere;
-        const cardChapitre = card.dataset.chapitre;
-        const cardConcours = card.dataset.concours;
-
-        const showByMatiere = !matiere || cardMatiere === matiere;
-        const showByChapitre = !chapitre || cardChapitre === chapitre;
-        const showByConcours = !selectedConcours || cardConcours === selectedConcours;
-
-        const shouldShow = showByMatiere && showByChapitre && showByConcours;
-        card.style.display = shouldShow ? "" : "none";
-      });
-    }
-
-    matiereSelect.addEventListener("change", updateChapitres);
-    chapitreSelect.addEventListener("change", filterCards);
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", (e) => {
-        e.preventDefault();
-        selectedConcours = tab.dataset.concours;
-
-        // Update tab styles
-        tabs.forEach(t => t.classList.remove("active-tab"));
-        tab.classList.add("active-tab");
-
-        filterCards();
-      });
+      card.style.display = (showByMatiere && showByChapitre && showByConcours) ? "" : "none";
     });
+  }
 
-    // Initial load
-    updateChapitres();
+  matiereSelect.addEventListener("change", updateChapitres);
+  chapitreSelect.addEventListener("change", filterCards);
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+      selectedConcours = tab.dataset.concours;
+      tabs.forEach(t => t.classList.remove("active-tab"));
+      tab.classList.add("active-tab");
+      filterCards();
+    });
   });
+
+  updateChapitres();
+});
 </script>
+
 
 
 </head>
@@ -212,13 +144,13 @@
 
         <!-- Tabs -->
         <nav class="-mb-px flex space-x-8 overflow-x-auto" id="concours-tabs">
-  <a href="#" class="tab active-tab" data-concours="">Tous les concours</a>
-  <a href="#" class="tab" data-concours="polytechnique">Polytechnique</a>
-  <a href="#" class="tab" data-concours="ens">ENS</a>
-  <a href="#" class="tab" data-concours="mines-ponts">Mines-Ponts</a>
-  <a href="#" class="tab" data-concours="centrale-supelec">Centrale-Supélec</a>
-  <a href="#" class="tab" data-concours="ccp">CCP</a>
-</nav>
+            <a href="#" class="tab active-tab" data-concours="">Tous les concours</a>
+            <a href="#" class="tab" data-concours="polytechnique">Polytechnique</a>
+            <a href="#" class="tab" data-concours="ens">ENS</a>
+            <a href="#" class="tab" data-concours="mines-ponts">Mines-Ponts</a>
+            <a href="#" class="tab" data-concours="centrale-supelec">Centrale-Supélec</a>
+            <a href="#" class="tab" data-concours="ccp">CCP</a>
+        </nav>
 
         <!-- Filter Section -->
         <div class="my-8 bg-white p-6 rounded-lg shadow">
@@ -246,7 +178,7 @@
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Maths - Probabilités
+                            Probabilités
                         </span>
                         <span class="text-sm text-gray-500">2017</span>
                     </div>
@@ -271,13 +203,12 @@
                     </div>
                 </div>
             </div>
-            <!-- Exam Card 1 -->
-            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths"
-     data-chapitre="proba" data-concours="polytechnique">
+            <!-- Exam Card 2 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths" data-chapitre="proba" data-concours="polytechnique">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Maths - Probabilités
+                            Probabilités
                         </span>
                     </div>
                     <div class="mt-4">
@@ -302,13 +233,12 @@
                 </div>
             </div>
 
-            <!-- Exam Card 2 -->
-            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="phys"
-     data-chapitre="optique_geo" data-concours="ccp">
+            <!-- Exam Card 3 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="phys" data-chapitre="optique_geo" data-concours="ccp">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-blue-800 text-xs font-medium bg-blue-100 rounded-full">
-                            Physique - Optique géométrique
+                            Optique géométrique
                         </span>
                     </div>
                     <div class="mt-4">
@@ -333,12 +263,12 @@
                 </div>
             </div>
 
-            <!-- Exam Card 3 -->
+            <!-- Exam Card 4 -->
             <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="chim", data-chapitre="config_elec", data-concours="mines-ponts">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-purple-800 text-xs font-medium bg-purple-100 rounded-full">
-                            Chimie
+                            Cinétique chimique
                         </span>
                         <span class="text-sm text-gray-500">2023</span>
                     </div>
@@ -363,11 +293,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Exam Card 5 -->
             <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths" data-chapitre="proba" data-concours="ens">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Maths - Probabilités
+                            Probabilités
                         </span>
                     </div>
                     <div class="mt-4">
@@ -390,12 +322,14 @@
                         </div>
                     </div>
                 </div>
-        </div>
-        <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths" data-chapitre="proba" data-concours="polytechnique">
+            </div>
+
+            <!-- Exam Card 6 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths" data-chapitre="proba" data-concours="polytechnique">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Maths - Probabilités
+                            Probabilités
                         </span>
                     </div>
                     <div class="mt-4">
@@ -418,16 +352,15 @@
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
 
-
-    <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths" data-chapitre="alg gen" data-concours="mines-ponts">
+            <!-- Exam Card 7 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="maths" data-chapitre="alg_gen" data-concours="mines-ponts">
                 <div class="px-4 py-5 sm:p-6">
                     <div class="flex items-center justify-between">
                         <span class="px-2 py-1 text-green-800 text-xs font-medium bg-green-100 rounded-full">
-                            Maths - Algèbre générale
+                            Algèbre générale
                         </span>
-                        <span class="text-sm text-gray-500">2017</span>
                     </div>
                     <div class="mt-4">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Polynôme positif</h3>
@@ -449,7 +382,38 @@
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
+
+            <!-- Exam Card 8 -->
+            <div class="exam-card bg-white overflow-hidden shadow rounded-lg" data-matiere="phys" data-chapitre="elec" data-concours="">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-1 text-blue-800 text-xs font-medium bg-blue-100 rounded-full">
+                            Électrocinétique
+                        </span>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Polynôme positif</h3>
+                        <p class="mt-1 text-sm text-gray-500">Écrit par ColleEnLigne</p>
+                        <p class="mt-2 text-sm text-gray-600">
+                           Approche simple pour comprendre l'équivalence entre les modèles de Thévenin et Norton.
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="text-xs text-gray-500">30 minutes</span>
+                        <div class="flex space-x-2">
+                            <a href="Annales/Physique/Électrocinétique/equi_thev_nort.html" class="text-primary-600 hover:text-primary-800 text-sm font-medium">
+                                Sujet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+    
+    
     </div>
 </div>
     <!-- Footer -->
