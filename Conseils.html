@@ -8,6 +8,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4f46e5',
+              secondary: '#10b981',
+            }
+          }
+        }
+      }
+    </script>
     <style>
       .tip-card {
         transition: all 0.3s ease;
@@ -38,10 +50,10 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
                     <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
-                        <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+                        Sujets de colle
                     </a>
                     <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
-                        <i data-feather="archive" class="mr-1"></i> Annales
+                        Annales d'oraux
                     </a>
                     <a href="/Conseils.html" class="border-b-2 border-primary-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
                         <i data-feather="lightbulb" class="mr-1"></i> Conseils
@@ -59,10 +71,10 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="text-center mb-12">
-            <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <h1 class="text-3xl font-extrabold text-primary sm:text-4xl">
                 <span class="block">Conseils Pratiques</span>
             </h1>
-            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            <p class="mt-3 max-w-md mx-auto text-base text-black sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                 Mes conseils personnels, sans prétention de détenir la recette miracle.
             </p>
         </div>
@@ -462,32 +474,19 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white">
-        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-            <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
-                <div class="px-5 py-2">
-                    <a href="/Repertoire_Sujet.html" class="text-base text-gray-500 hover:text-gray-900">
-                        Sujets de colle
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="/Annales_Oral.html" class="text-base text-gray-500 hover:text-gray-900">
-                        Annales
-                    </a>
-                </div>
-                <div class="px-5 py-2">
-                    <a href="/Conseils.html" class="text-base text-gray-500 hover:text-gray-900">
-                        Conseils
-                    </a>
-                </div>
-            </nav>
+        <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-1 px-4 overflow-hidden sm:px-6 lg:px-8">
+            
             <div class="mt-8 flex justify-center space-x-6">
-                <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <i data-feather="mail" class="h-6 w-6"></i>
+                Un avis ? Une remarque ?   <a></a>
+                <a href="avis.html"
+                class="font-bold text-black underline decoration-black hover:decoration-primary-500 hover:text-primary-500">
+                Donner votre avis !
                 </a>
+
             </div>
             <p class="mt-8 text-center text-base text-gray-400">
-                &copy; 2025 Colle En Ligne. Tous droits réservés.
+                &copy; 2025 Colle en Ligne. Tous droits réservés.
             </p>
         </div>
     </footer>
