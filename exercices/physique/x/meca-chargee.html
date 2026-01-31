@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colle en Ligne - Annales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <title>Annales</title>
+
+  <!-- Font + CSS fixes -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .problem-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+
+    .problem-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ✅ MathJax inline: stay inline, no weird spacing */
+    mjx-container[jax="SVG"][display="false"] {
+      display: inline !important;
+      vertical-align: middle !important;
+    }
+
+    /* ✅ MathJax block: clean spacing */
+    mjx-container[jax="SVG"][display="true"] {
+      display: block;
+      margin: 1em 0;
+    }
+    /* Force all inline‑math containers to inline display */
+mjx-container[jax="SVG"][display="false"],
+mjx-container[jax="SVG"]:not([display="true"]) {
+  display: inline !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+  </style>
+
+  <!-- ✅ MathJax Config (only once!) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Navbar -->
+<nav class="bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 flex items-center">
+          <a href="/index.html">
+            <i data-feather="book-open" class="h-8 w-8 text-purple-600"></i>
+          </a>
+          <span class="ml-2 text-xl font-bold text-gray-900">Colle En Ligne</span>
+        </div>
+      </div>
+      <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
+        <a href="/Repertoire_Sujet.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <i data-feather="file-text" class="mr-1"></i> Sujets de colle
+        </a>
+        <a href="/Annales_Oral.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <i data-feather="archive" class="mr-1"></i> Annales
+        </a>
+        <a href="/Conseils.html" class="text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <i data-feather="lightbulb" class="mr-1"></i> Conseils
+        </a>
+      </div>
+      <div class="-mr-2 flex items-center sm:hidden">
+        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600">
+          <i data-feather="menu"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4"> Mécanique d'une particule chargée.</h2>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2 py-1 text-blue-800 text-xs font-medium bg-blue-100 rounded-full">Électromagnétisme</span>
+                        <span class="text-xs text-gray-500">50 minutes</span>
+                    </div>
+                    <div id="math-content" class="prose max-w-none p-4 bg-gray-50 rounded-lg">
+                        Soit une particule chargée, de charge \(q\) se déplaçant dans un champ magnétique \(\vec{B} = \vec{B(r)}\). 
+                        
+
+                          <strong>1.</strong> Montrer que la norme de la vitesse de la particule est conservée.</li><br>
+                          <strong>2.</strong> Déterminer le champ magnétique.</li><br>
+                          <strong>3.</strong> Montrer que le mouvement de la particule est conique.
+                        
+                    </div>
+
+            
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-6">
+      <a href="/Annales_Oral.html" class="inline-block px-6 py-3 border border-gray-200 rounded-md text-sm font-medium hover:bg-gray-50">
+        Tous les exercices
+      </a>
+    </div>
+  </div>
+    </main>
+    
+<!-- Footer -->
+<footer class="border-t border-gray-100 py-8 px-4 sm:px-6 lg:px-8 mt-12">
+  <div class="max-w-6xl mx-auto text-center text-sm text-gray-500">
+    <p>© 2025 Colle en Ligne. Tous droits réservés.</p>
+  </div>
+</footer>
+</body>
+</html>
